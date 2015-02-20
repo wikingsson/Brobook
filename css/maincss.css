@@ -33,9 +33,6 @@ body {
 }
 .feed_profile {
 	float:left;
-	width:10%;
-	margin-left:15px;
-	margin-right:15px;
 	text-align: center;
 }
 .feed_profile img {
@@ -45,8 +42,7 @@ body {
     margin-right: auto;
 }
 .feed_text {
-	float:left;
-	width:80%;
+	float:right;
 	font-size:18px;
 	color:#666;
 }
@@ -76,5 +72,8 @@ body {
 	margin-bottom:20px;
 	padding-top:0;
 }
-
+.feed_textarea {
+	padding right: 0;
+	padding left: 0;
+}
 
