@@ -1,0 +1,80 @@
+body {
+	padding-top: 80px;
+	background: url("../img/billie_holiday.png") repeat;
+}
+
+
+
+
+
+.feed {
+	background-color:#fff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0px 0px 2px 2px #ffffff;
+	box-shadow: inset 0px 0px 2px 2px #ffffff;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+	margin-bottom:20px;
+}
+.meta_image {
+	width: 100px;
+	height: 100px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	border-radius: 150px;
+	border:4px solid #efefef;
+}
+.feed_body {
+	padding:20px;
+/*	border-bottom:1px solid #efefef;*/
+	margin-bottom:0;
+}
+.feed_profile {
+	float:left;
+	width:10%;
+	margin-left:15px;
+	margin-right:15px;
+	text-align: center;
+}
+.feed_profile img {
+	float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.feed_text {
+	float:left;
+	width:80%;
+	font-size:18px;
+	color:#666;
+}
+.feed_bottom {
+	margin-top:-10px;
+	padding-left:20px;
+	padding-bottom:20px;
+}
+
+.bottom_left {
+	float:left;
+	margin-left:20px;
+}
+.bottom_right {
+	float:right;
+	margin-right:20px;
+	color:#999;
+	font-size:12px;
+}
+
+.bottom_right a {
+	font-weight:bold;
+}
+
+.feed_hr {
+	margin-top:0;
+	margin-bottom:20px;
+	padding-top:0;
+}
+
+
