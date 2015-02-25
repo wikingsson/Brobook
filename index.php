@@ -5,8 +5,8 @@
     <title>Brobook</title>
     <meta name="description" content="Da shit">
     <meta name="author" content="Brobook">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href='css/maincss.css' rel='stylesheet' type='text/css'>
+    <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
+    <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -25,8 +25,13 @@
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.php">Home</a></li>
+<<<<<<< Updated upstream
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="message.php">Messages</a></li>
+=======
+                <li><a href="../../../Brobook/profile.html">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+>>>>>>> Stashed changes
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
@@ -105,8 +110,8 @@
     </div> <!-- End Row -->
     </div> <!-- container -->
 
-      <script src="js/jquery.min.js" type="text/javascript"></script>
-      <script src="js/bootstrap.js"></script>
-      <script src="js/brobook.js"></script>
+      <script src="../../../Brobook/js/jquery.min.js" type="text/javascript"></script>
+      <script src="../../../Brobook/js/bootstrap.js"></script>
+      <script src="../../../Brobook/js/brobook.js"></script>
 </body>
 </html>
