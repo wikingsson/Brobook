@@ -44,7 +44,50 @@
 
 <div class="container">
   <div class="row">
+  <div class="col-xs-8 col-md-12">
+     
+     <div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="http://gfx.bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/428/files/2014/11/78.jpg" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Per Hammar</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
 
+
+
+
+   <div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="https://babyjennifer.files.wordpress.com/2010/02/110830b2.jpg" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Tsatsiki</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+    <div class="col-xs-8 col-md-12 feed_textarea">
+      <textarea class="form-control" rows="2"></textarea>
+      <div class="pull-right col-xs-4 col-md-2 profile_button">
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+      </div>
+    </div>
     </div> <!-- End Row -->
     </div> <!-- container -->
 
