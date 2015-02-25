@@ -1,3 +1,9 @@
+<?php
+    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,11 +50,25 @@
 <div class="container-fluid profile-header">
   <div class="container">
 
+      <?php
+      $profileFetch = $db->prepare("SELECT * FROM status_updates
+                                     JOIN users ON (users.user_id = status_updates.user_id)
+                                     ORDER BY created DESC");
+      if($profileFetch->execute()){
+      while($profileRow = $profileFetch->fetch()){
+      if($profileRow["profile_img"] == null){
+          $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
+      }
+      else{
+          $picture = $profileRow["profile_img"];
+      }
+      ?>
+
     <div class="row profile-header-content">
       <div class="col-md-3 col-sm-3 col-xs-4 profile-pic">
-      <img src="http://gfx.bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/428/files/2014/11/78.jpg" class="img-thumbnail"></div>
+      <img src="<?php echo($picture)?>" class="img-thumbnail"></div>
       <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
-        <h2>Per Hammar</h2>
+        <h2><?php echo($profileRow["firstname"] . " " . $profileRow["lastname"])?></h2>
         <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
 
         <div class="col-xs-8 col-md-12 feed_textarea">
@@ -64,11 +84,11 @@
         <div class="feed_body">
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
-              <img src="http://gfx.bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/428/files/2014/11/78.jpg" alt="meta image" class="meta_image" />
-              <a href="#">Per Hammar</a>
+              <img src="<?php echo($picture)?>" alt="meta image" class="meta_image" />
+              <a href="#"><?php echo($profileRow["firstname"] . " " . $profileRow["lastname"])?></a>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rerum aliquid ipsum officiis tempore corrupti qui voluptate ullam non eius fugit totam facilis id vero reprehenderit praesentium, beatae enim eum.</p>
+            <p><?php echo($profileRow["content"])?></p>
             </div>
           </div>
         </div>
@@ -79,13 +99,17 @@
               <p>left</p>
             </div>
             <div class="bottom_right">
-              2 days ago
+                <?php echo(substr($profileRow["created"],0,-3))?>
             </div> 
           </div>
         </div>
       </div>
       </div>
     </div>
+    <?php
+         }
+      }
+    ?>
 
   </div>
 </div>
