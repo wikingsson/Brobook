@@ -48,7 +48,6 @@
      
      <div class="media">
   <div class="media-left">
-    <a href="#">
       <img class="media-object" src="http://gfx.bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/428/files/2014/11/78.jpg" alt="...">
     </a>
   </div>
@@ -67,7 +66,6 @@
 
    <div class="media">
   <div class="media-left">
-    <a href="#">
       <img class="media-object" src="https://babyjennifer.files.wordpress.com/2010/02/110830b2.jpg" alt="...">
     </a>
   </div>
