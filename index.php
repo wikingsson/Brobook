@@ -44,6 +44,12 @@
 
 <div class="container">
   <div class="row">
+   <div class="col-xs-8 col-md-12 feed_textarea">
+              <textarea class="form-control" rows="2"></textarea>
+        <div class="pull-right col-xs-4 col-md-2 profile_button">
+          <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+          </div>
+        </div>
     <div class="span8">
 
       <div class="col-xs-8 col-md-12 feed">

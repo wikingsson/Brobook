@@ -60,7 +60,7 @@
 
 
 
-        <div class="col-xs-8 col-md-12 feed">
+        <div class="col-xs-12 col-md-12 feed">
         <div class="feed_body">
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
