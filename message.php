@@ -1,3 +1,9 @@
+<?php
+    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "");
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,52 +49,70 @@
 </nav>
 
 <div class="container">
+    <div class="conversationList">
+        <input type="submit" name="createConversation" value="Create Conversation" />
+        <?php
+        $conversationStm = $db->prepare("SELECT * FROM conversation_users JOIN conversation ON (conversation_users.conversation_id = conversation.conversation_id) JOIN users ON (users.user_id = conversation_users.user_id) WHERE users.user_id = 3");
+        if($conversationStm->execute()){
+            while($convRow = $conversationStm->fetch()){
+            ?>
+                <p class="conversationName"><a><?php echo($convRow["name"])?></a></p>
+            <?php
+            }
+        }
+        ?>
+    </div>
+    <?php
+    $currentUserId = 3;
+    $participantStm = $db->prepare("SELECT U.firstname, U.lastname FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two= :currentUser THEN F.friend_one= U.user_id END AND F.status= 2 ORDER BY U.lastname");
+    $participantStm->bindParam(":currentUser", $currentUserId);
+    $participantStm->execute();
+    ?>
+    <div class="conversationParticipants">
+        <ul>
+            <?php
+            while($participantRow = $participantStm->fetch()){
+                ?>
+                <li><a><?php echo($participantRow["firstname"] . " " . $participantRow["lastname"])?></a></li>
+            <?php
+            }?>
+        </ul>
+        <div id="participantList">
+
+        </div>
+    </div>
   <div class="row">
   <div class="col-xs-8 col-md-12">
-     
-     <div class="media">
-  <div class="media-left">
-      <img class="media-object" src="http://gfx.bloggar.aftonbladet-cdn.se/wp-content/blogs.dir/428/files/2014/11/78.jpg" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Per Hammar</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
 
+  <?php
+  $messageStm = $db->prepare("SELECT * FROM messages");
+  if($messageStm->execute()){
+      while($messageRow = $messageStm->fetch()){
+      ?>
+      <div class="media">
+          <div class="media-left">
+              <img class="media-object" src="" alt="...">
+              </a>
+          </div>
+          <div class="media-body">
+              <h4 class="media-heading"></h4>
+              <p></p>
+          </div>
+      </div>
 
+      <?php
+      }
+  }
 
-
-   <div class="media">
-  <div class="media-left">
-      <img class="media-object" src="https://babyjennifer.files.wordpress.com/2010/02/110830b2.jpg" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Tsatsiki</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </div>
-</div>
-
+  ?>
     <div class="col-xs-8 col-md-12 feed_textarea">
         <form method="post" action="">
             <textarea class="form-control" rows="2"></textarea>
             <div class="pull-right col-xs-4 col-md-2 profile_button">
-                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+                <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
             </div>
         </form>
-    </div>
-    </div> <!-- End Row -->
+    </div><!-- End Row -->
     </div> <!-- container -->
 
       <script src="js/jquery.min.js" type="text/javascript"></script>
