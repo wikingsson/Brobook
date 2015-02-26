@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +37,7 @@
                 <li class="active"><a href="message.php">Messages</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#"> Preferences</a></li>
                     <li><a href="#"> Contact Support</a></li>

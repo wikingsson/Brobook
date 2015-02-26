@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 ?>
@@ -35,12 +37,12 @@
                 <li><a href="message.php">Messages</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#"> Preferences</a></li>
                     <li><a href="#"> Contact Support</a></li>
                     <li class="#"></li>
-                    <li><a href="#"> Logout</a></li>
+                    <li><a href="logout.php"> Logout</a></li>
                    </ul>
                 </li>
             </ul>
@@ -53,15 +55,17 @@
       <?php
       $profileFetch = $db->prepare("SELECT * FROM status_updates
                                     JOIN users ON (users.user_id = status_updates.user_id)
+                                    WHERE (users.user_id = :user_id)
                                     ORDER BY created DESC");
+      $profileFetch->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_STR);
       if($profileFetch->execute()){
-      while($profileRow = $profileFetch->fetch()){
-      if($profileRow["profile_img"] == null){
-          $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
-      }
-      else{
-          $picture = $profileRow["profile_img"];
-      }
+        while($profileRow = $profileFetch->fetch()){
+            if($profileRow["profile_img"] == null){
+                 $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
+            }
+            else{
+                 $picture = $profileRow["profile_img"];
+            }
       ?>
 
     <div class="row profile-header-content">
@@ -70,16 +74,14 @@
       <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
         <h2><?php echo($profileRow["firstname"] . " " . $profileRow["lastname"])?></h2>
         <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
-
+      <form method="post" action="insert.php">
         <div class="col-xs-8 col-md-12 feed_textarea">
               <textarea class="form-control" rows="2"></textarea>
         <div class="pull-right col-xs-4 col-md-2 profile_button">
-          <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+          <button name="post_button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
           </div>
         </div>
-
-
-
+      </form>
         <div class="col-xs-12 col-md-12 feed">
         <div class="feed_body">
           <div class="row">
@@ -96,7 +98,7 @@
         <div class="bottom">
           <div class="row">
             <div class="bottom_left">
-              <p>left</p>
+                <input type="submit" value="DELETE" name="delete_button"/>
             </div>
             <div class="bottom_right">
                 <?php echo(substr($profileRow["created"],0,-3))?>

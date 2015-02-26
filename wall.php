@@ -78,7 +78,7 @@
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
               <img src="<?php echo($picture) ?>" alt="meta image" class="meta_image" />
-              <a href="#"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
+              <a href="profile.php"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
             <p><?php echo($updateRow["content"])?></p>
