@@ -12,7 +12,7 @@ if(isset($_POST["login_submit"])){
     if($loginStm->rowCount() == 1){
         session_start();
         $_SESSION["status"] = "loggedIn";
-        $_SESSION["user"] = $_POST["email"];
+        $_SESSION["user"] = $userId["firstname"] . " " . $userId["lastname"];
         $_SESSION["userId"] = $userId["user_id"];
         header("location:logincheck.php");
     }

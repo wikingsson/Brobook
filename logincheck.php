@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION["status"])){
-    header("location:index1.php");
+    header("location:wall.php");
 }
 else{
     header("loaction:login.php");

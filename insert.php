@@ -10,6 +10,6 @@
         $UpdateStm->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_STR);
         $UpdateStm->execute();
 
-        header("location:index1.php");
+        header("location:wall.php");
     }
 ?>
