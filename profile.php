@@ -52,8 +52,8 @@
 
       <?php
       $profileFetch = $db->prepare("SELECT * FROM status_updates
-                                     JOIN users ON (users.user_id = status_updates.user_id)
-                                     ORDER BY created DESC");
+                                    JOIN users ON (users.user_id = status_updates.user_id)
+                                    ORDER BY created DESC");
       if($profileFetch->execute()){
       while($profileRow = $profileFetch->fetch()){
       if($profileRow["profile_img"] == null){
