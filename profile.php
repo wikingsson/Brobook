@@ -76,9 +76,9 @@
         <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
       <form method="post" action="insert.php">
         <div class="col-xs-8 col-md-12 feed_textarea">
-              <textarea class="form-control" rows="2"></textarea>
+              <textarea name="profile_content" class="form-control" rows="2"></textarea>
         <div class="pull-right col-xs-4 col-md-2 profile_button">
-          <button name="post_button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+          <button name="profile_post_button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
           </div>
         </div>
       </form>
