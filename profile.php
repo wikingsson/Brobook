@@ -53,26 +53,26 @@
   <div class="container">
 
       <?php
-      $profileFetch = $db->prepare("SELECT * FROM status_updates
-                                    JOIN users ON (users.user_id = status_updates.user_id)
-                                    WHERE (users.user_id = :user_id)
-                                    ORDER BY created DESC");
-      $profileFetch->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_STR);
-      if($profileFetch->execute()){
-        while($profileRow = $profileFetch->fetch()){
-            if($profileRow["profile_img"] == null){
+      $userFetch = $db->prepare("SELECT * FROM users WHERE user_id = :userId");
+      $userFetch->bindParam(":userId", $_SESSION["userId"], PDO:: PARAM_STR);
+
+
+      if($userFetch->execute()){
+            $userRow = $userFetch->fetch();
+            if($userRow["profile_img"] == null){
                  $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
             }
             else{
-                 $picture = $profileRow["profile_img"];
+                 $picture = $userRow["profile_img"];
             }
+
       ?>
 
     <div class="row profile-header-content">
       <div class="col-md-3 col-sm-3 col-xs-4 profile-pic">
       <img src="<?php echo($picture)?>" class="img-thumbnail"></div>
       <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
-        <h2><?php echo($profileRow["firstname"] . " " . $profileRow["lastname"])?></h2>
+        <h2><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h2>
         <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
       <form method="post" action="insert.php">
         <div class="col-xs-8 col-md-12 feed_textarea">
@@ -82,6 +82,17 @@
           </div>
         </div>
       </form>
+      <?php
+      }
+      $profileFetch = $db->prepare("SELECT * FROM status_updates
+                                JOIN users ON (users.user_id = status_updates.user_id)
+                                WHERE (users.user_id = :user_id)
+                                ORDER BY created DESC");
+      $profileFetch->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_STR);
+      if($profileFetch->execute()){
+          while($profileRow = $profileFetch->fetch()){
+      ?>
+
       <form method="post" action="delete.php">
         <div class="col-xs-12 col-md-12 feed">
         <div class="feed_body">
