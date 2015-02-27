@@ -53,7 +53,7 @@
   <div class="row">
       <form method="post" action="insert.php">
       <div class="col-xs-8 col-md-12 feed_textarea">
-              <textarea class="form-control" name="content" rows="2"></textarea>
+              <textarea class="form-control" name="content" rows="2" required></textarea>
         <div class="pull-right col-xs-4 col-md-2 profile_button">
           <button type="submit" name="post_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
           </div>
