@@ -3,10 +3,6 @@ body {
 	background: url("../img/billie_holiday.png") repeat;
 }
 
-
-
-
-
 .feed {
 	background-color:#fff;
 	-webkit-border-radius: 6px;
@@ -73,8 +69,8 @@ body {
 	padding-top:0;
 }
 .feed_textarea {
-	padding right: 0;
-	padding left: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .media-object {
