@@ -82,6 +82,7 @@
           </div>
         </div>
       </form>
+      <form method="post" action="delete.php">
         <div class="col-xs-12 col-md-12 feed">
         <div class="feed_body">
           <div class="row">
@@ -98,6 +99,7 @@
         <div class="bottom">
           <div class="row">
             <div class="bottom_left">
+                <input type="hidden" name="hidden_status_id" value="<?php echo($profileRow["status_update_id"])?>"/>
                 <input type="submit" value="DELETE" name="delete_button"/>
             </div>
             <div class="bottom_right">
@@ -106,6 +108,7 @@
           </div>
         </div>
       </div>
+    </form>
       </div>
     </div>
     <?php
