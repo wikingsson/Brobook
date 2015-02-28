@@ -32,32 +32,101 @@
         }
     }
 ?>
-<html>
-<head>
-    <title>Logga In - BroBook</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</head>
-<body>
-<div id="wrapper">
-    <div id="header">
-        <div id="inlogForm">
-            <form method="post">
-                <input class="headerLogIn" placeholder="Email" type="text" name="email"/>
-                <input class="headerLogIn" placeholder="PASSWORD" type="password" name="password"/>
-                <input class="logInButton" type="submit" value="Logga in" name="login_submit"/>
-            </form>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brobook</title>
+    <meta name="description" content="Da shit">
+    <meta name="author" content="Brobook">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href='css/maincss.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+<div class="container">
+  <div class="row">
+
+
+<form class="form-horizontal pull-right" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Login</legend>
     </div>
-    <div id="content">
-        <form method="post">
-            <input class="signUpInput" type="text" name="firstname" placeholder="FIRST NAME" required=""/>
-            <input class="signUpInput" type="text" name="lastname" placeholder="LAST NAME" required=""/>
-            <input class="signUpInput" type="text" name="email" placeholder="EMAIL" required=""/>
-            <input class="signUpInput" type="password" name="password" placeholder="PASSWORD" required=""/><br/>
-            <input class="signUpButton" type="submit" name="register_submit" value="REGISTER" required=""/>
-        </form>
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+      </div>
     </div>
-</div>
+
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <p></p>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+      <input class="btn btn-success " type="submit" name="login_submit" value="Login" required=""/>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<form class="form-horizontal" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+      <!-- first name -->
+      <label class="control-label"  for="first_name">First Name</label>
+      <div class="controls">
+        <input type="text" id="first_name" name="firstname" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Last Name -->
+      <label class="control-label"  for="last_name">Last Name</label>
+      <div class="controls">
+        <input type="text" id="last_name" name="lastname" placeholder="" class="input-xlarge">
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <p class="help-block">Please provide your E-mail</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+      <input class="btn btn-success " type="submit" name="register_submit" value="Register" required=""/>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</div> <!-- row -->
+</div> <!-- container -->
 </body>
 </html>
