@@ -13,8 +13,8 @@
     <title>Brobook</title>
     <meta name="description" content="Da shit">
     <meta name="author" content="Brobook">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href='css/maincss.css' rel='stylesheet' type='text/css'>
+    <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
+    <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -36,6 +36,18 @@
                 <li class="active"><a href="profile.php">Profile</a></li>
                 <li><a href="message.php">Messages</a></li>
             </ul>
+              <div class="col-xs-8 col-md-8 center-block">
+                  <div class="search"> 
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control"  placeholder="Search" >
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                              </button>  
+                          </span>
+                      </div>
+                  </div>
+              </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
                   <ul class="dropdown-menu">
