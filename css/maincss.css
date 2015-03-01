@@ -28,9 +28,15 @@ body {
 	margin-bottom:0;
 }
 .feed_profile {
+	font-size: 12px;
 	float:left;
 	text-align: center;
 }
+
+.feed_profile a {
+	color: #000;
+}
+
 .feed_profile img {
 	float: none;
     display: block;
@@ -117,6 +123,9 @@ textarea {
 	padding-bottom: 10px;
 }
 
+.bottom_right {
+	padding-bottom: 10px;
+}
 .bottom_left >.btn {
 	border: 0px;
 	padding: 0px;

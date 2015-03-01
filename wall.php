@@ -101,7 +101,7 @@
         <div class="bottom">
           <div class="row">
             <div class="bottom_left">
-              <p>left</p>
+
             </div>
             <div class="bottom_right">
                 <?php echo(substr($updateRow["created"],0,-3))?>
