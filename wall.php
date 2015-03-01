@@ -63,14 +63,14 @@
 
 <div class="container">
   <div class="row">
-      <form method="post" action="insert.php">
-      <div class="col-xs-8 col-md-12 feed_textarea">
-              <textarea class="form-control" name="content" rows="2" required></textarea>
-        <div class="pull-right col-xs-4 col-md-2 profile_button">
-          <button type="submit" name="post_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
-          </div>
-        </div>
-      </form>
+  <div class="input-group status-box"><!-- textarea -->
+    <form method="post" action="insert.php">
+      <textarea class="form-control status-text" name="content" rows="3" style="width:1090px; height:77px;"></textarea>
+        <span class="group-addon pull-right">
+            <button type="submit" name="post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+         </span>   
+    </form>
+  </div><!-- textarea -->
     <div class="span8">
         <?php
         $updateFetch = $db->prepare("SELECT * FROM status_updates

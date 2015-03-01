@@ -81,9 +81,8 @@ body {
 	width: 95%;
 	margin-left: 30px;
 	padding-top: 8px;
-
-
 }
+
 .stylish-input-group .input-group-addon{
     background: white !important; 
 }
@@ -96,3 +95,21 @@ body {
     border:0;
     background:transparent;
 }
+
+.btn-text {
+	width: 77px;
+	height: 77px;
+}
+
+.text-box {
+	padding-top: 10px;
+}
+
+.status-box {
+	padding-bottom: 15px;
+}
+
+textarea {
+    resize: none;
+}
+

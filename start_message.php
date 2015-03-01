@@ -12,8 +12,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <title>Brobook</title>
   <meta name="description" content="Da shit">
   <meta name="author" content="Brobook">
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href='css/maincss.css' rel='stylesheet' type='text/css'>
+  <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
+  <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -35,6 +35,18 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           <li><a href="profile.php">Profile</a></li>
           <li class="active"><a href="message.php">Messages</a></li>
         </ul>
+         <div class="col-xs-8 col-md-8 center-block">
+          <div class="search"> 
+            <div class="input-group stylish-input-group">
+              <input type="text" class="form-control"  placeholder="Search" >
+              <span class="input-group-addon">
+                <button type="submit">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>  
+              </span>
+            </div>
+          </div>
+        </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -67,12 +79,16 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <div class="panel-body">
     <div class="col-xs-6 col-md-4">
       <nav class="nav-sidebar">
+        <span class="">
+          <button type="submit" name="" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
+       </span>
         <ul class="nav tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Erik</a></li>
           <li class=""><a href="#tab2" data-toggle="tab">Jan</a></li>
           <li class=""><a href="#tab3" data-toggle="tab">Sven</a></li>                               
         </ul>
       </nav>
+   
     </div>
 
     <!-- tab content -->
@@ -99,12 +115,14 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           <p>Penizz</p>
         </div>
       </div><!-- end message -->
-        <form method="post" action="">
-            <textarea class="form-control" rows="2"></textarea>
-            <div class="pull-right col-xs-4 col-md-2 profile_button">
-                <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
-            </div>
-        </form>
+        <div class="input-group text-box"><!-- textarea -->
+          <form method="post" action="">
+            <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+              <span class="group-addon pull-right">
+                  <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+               </span>   
+          </form>
+        </div><!-- textarea -->
     </div>
     <div class="tab-pane text-style" id="tab2">
       <div class="media">
@@ -127,12 +145,14 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
       <p>hej</p>
     </div>
   </div><!-- end message -->
+  <div class="input-group text-box"><!-- textarea -->
     <form method="post" action="">
-        <textarea class="form-control" rows="2"></textarea>
-        <div class="pull-right col-xs-4 col-md-2 profile_button">
-            <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
-        </div>
-    </form>  
+      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+        <span class="group-addon pull-right">
+            <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+         </span>   
+    </form>
+  </div><!-- textarea --> 
 </div>
 <div class="tab-pane text-style" id="tab3">
   <div class="media">
@@ -155,12 +175,14 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <p>hehhehehehe</p>
 </div>
 </div><!-- end message -->
+  <div class="input-group text-box"><!-- textarea -->
     <form method="post" action="">
-        <textarea class="form-control" rows="2"></textarea>
-        <div class="pull-right col-xs-4 col-md-2 profile_button">
-            <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
-        </div>
+      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+        <span class="group-addon pull-right">
+            <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+         </span>   
     </form>
+  </div><!-- textarea -->
 </div>
 </div> <!-- tab end -->
 </div> <!-- conv end -->
