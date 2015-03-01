@@ -1,5 +1,5 @@
 <?php
-$db = new PDO("mysql:host=localhost;dbname=BroBook", "root", "root");
+$db = new PDO("mysql:host=localhost;dbname=BroBook", "root", "");
 
 
 if(isset($_POST["login_submit"])){

@@ -2,7 +2,7 @@
 
     session_start();
 
-    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+    $db = new PDO("mysql:host=localhost;dbname=brobook;charset=utf8", "root", "");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 ?>
 
@@ -55,7 +55,8 @@
     <div class="conversationList">
         <input type="submit" name="createConversation" value="Create Conversation" />
         <?php
-        $conversationStm = $db->prepare("SELECT * FROM conversation_users JOIN conversation ON (conversation_users.conversation_id = conversation.conversation_id) JOIN users ON (users.user_id = conversation_users.user_id) WHERE users.user_id = 3");
+        $conversationStm = $db->prepare("SELECT * FROM conversation_users JOIN conversation ON (conversation_users.conversation_id = conversation.conversation_id) JOIN users ON (users.user_id = conversation_users.user_id) WHERE users.user_id = :userId");
+        $conversationStm->bindParam(":userId", $_SESSION["userId"]);
         if($conversationStm->execute()){
             while($convRow = $conversationStm->fetch()){
             ?>
@@ -66,9 +67,9 @@
         ?>
     </div>
     <?php
-    $currentUserId = 3;
+    //$currentUserId = 3;
     $participantStm = $db->prepare("SELECT U.firstname, U.lastname FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two= :currentUser THEN F.friend_one= U.user_id END AND F.status= 2 ORDER BY U.lastname");
-    $participantStm->bindParam(":currentUser", $currentUserId);
+    $participantStm->bindParam(":currentUser", $_SESSION["userId"]);
     $participantStm->execute();
     ?>
     <div class="conversationParticipants">
