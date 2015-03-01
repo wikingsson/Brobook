@@ -130,7 +130,9 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                       <div class="row">
                         <div class="bottom_left">
                           <input type="hidden" name="hidden_status_id" value="<?php echo($profileRow["status_update_id"])?>"/>
-                          <input type="submit" value="DELETE" name="delete_button"/>
+                          <button type="submit" name="delete_button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-trash"></span>
+                          </button>
                         </div>
                         <div class="bottom_right">
                           <?php echo(substr($profileRow["created"],0,-3))?>
@@ -139,8 +141,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
                     </div>
                   </div>
                 </form>
-              </div>
-            </div>
+
             <?php
           }
         }

@@ -113,3 +113,11 @@ textarea {
     resize: none;
 }
 
+.bottom_left {
+	padding-bottom: 10px;
+}
+
+.bottom_left >.btn {
+	border: 0px;
+	padding: 0px;
+}
