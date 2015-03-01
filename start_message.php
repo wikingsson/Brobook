@@ -99,6 +99,12 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           <p>Penizz</p>
         </div>
       </div><!-- end message -->
+        <form method="post" action="">
+            <textarea class="form-control" rows="2"></textarea>
+            <div class="pull-right col-xs-4 col-md-2 profile_button">
+                <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+            </div>
+        </form>
     </div>
     <div class="tab-pane text-style" id="tab2">
       <div class="media">
@@ -121,6 +127,12 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
       <p>hej</p>
     </div>
   </div><!-- end message -->
+    <form method="post" action="">
+        <textarea class="form-control" rows="2"></textarea>
+        <div class="pull-right col-xs-4 col-md-2 profile_button">
+            <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+        </div>
+    </form>  
 </div>
 <div class="tab-pane text-style" id="tab3">
   <div class="media">
@@ -143,6 +155,13 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <p>hehhehehehe</p>
 </div>
 </div><!-- end message -->
+    <form method="post" action="">
+        <textarea class="form-control" rows="2"></textarea>
+        <div class="pull-right col-xs-4 col-md-2 profile_button">
+            <button type="submit" name="send_message_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
+        </div>
+    </form>
+</div>
 </div> <!-- tab end -->
 </div> <!-- conv end -->
 </div> <!-- panel body -->
