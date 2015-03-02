@@ -91,7 +91,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
               <div class="input-group status-box"><!-- textarea -->
                 <form method="post" action="insert.php">
-                  <textarea class="form-control status-text" name="profile_content" rows="3" style="width:770px; height:77px;"></textarea>
+                  <textarea class="form-control status-text" name="profile_content" rows="3" style="width:750px; height:77px;"></textarea>
                   <span class="group-addon pull-right">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
                   </span>   
