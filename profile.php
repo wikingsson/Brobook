@@ -34,7 +34,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         <ul class="nav navbar-nav">
           <li><a href="wall.php">Home</a></li>
           <li class="active"><a href="profile.php">Profile</a></li>
-          <li><a href="message.php">Messages</a></li>
+          <li><a href="start_message.php">Messages</a></li>
         </ul>
         <div class="col-xs-8 col-md-8 center-block">
           <div class="search"> 

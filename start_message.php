@@ -67,12 +67,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <div class="panel-heading">
     <div class="search"> 
       <div class="input-group stylish-input-group">
-          <input type="text" class="form-control"  placeholder="Search" >
-          <span class="input-group-addon">
-              <button type="submit">
-                  <span class="glyphicon glyphicon-search"></span>
-              </button>  
-          </span>
+
+
       </div>
     </div>
   </div>
@@ -83,17 +79,35 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           <button type="submit" name="" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
        </span>
         <ul class="nav tabs">
-          <li class="active"><a href="#tab1" data-toggle="tab">Erik</a></li>
-          <li class=""><a href="#tab2" data-toggle="tab">Jan</a></li>
-          <li class=""><a href="#tab3" data-toggle="tab">Sven</a></li>                               
+          <?php
+          $conversationStm = $db->prepare("SELECT * FROM conversation_users JOIN conversation ON (conversation_users.conversation_id = conversation.conversation_id) JOIN users ON (users.user_id = conversation_users.user_id) WHERE users.user_id = 3");
+          if($conversationStm->execute()){
+            $tabNr = 1;
+            while($convRow = $conversationStm->fetch()){
+                if($tabNr == 1){
+                    $isActive = "active";
+                }
+                else{
+                    $isActive = "";
+                }
+          ?>
+              <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" data-toggle="tab"><?php echo($convRow["name"])?></a></li>
+            <?php
+                $tabNr++;
+            }
+          }
+          ?>
         </ul>
       </nav>
-   
     </div>
 
     <!-- tab content -->
     <div class="col-xs-12 col-md-8">
       <div class="tab-content">
+        <?php
+        //$messageStm = $db->prepare("SELECT * FROM messages WHERE conversation_id = :conv_id");
+        //$messageStm->bindParam(":conv_id", $convRow);
+        ?>
         <div class="tab-pane active text-style" id="tab1">
           <div class="media">
             <div class="media-left">
@@ -102,7 +116,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           </div>
           <div class="media-body">
             <h4 class="media-heading"></h4>
-            <p>Penis</p>
+            <p>HEJ</p>
           </div>
         </div><!-- end message -->
         <div class="media">
@@ -112,7 +126,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         </div>
         <div class="media-body">
           <h4 class="media-heading"></h4>
-          <p>Penizz</p>
+          <p>Dåå</p>
         </div>
       </div><!-- end message -->
         <div class="input-group text-box"><!-- textarea -->
@@ -124,7 +138,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
           </form>
         </div><!-- textarea -->
     </div>
-    <div class="tab-pane text-style" id="tab2">
+        <div class="tab-pane text-style" id="tab2">
       <div class="media">
         <div class="media-left">
           <img class="media-object" src="" alt="...">
@@ -154,7 +168,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     </form>
   </div><!-- textarea --> 
 </div>
-<div class="tab-pane text-style" id="tab3">
+        <div class="tab-pane text-style" id="tab3">
   <div class="media">
     <div class="media-left">
       <img class="media-object" src="" alt="...">
