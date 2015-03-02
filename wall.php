@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "");
+    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 ?>
 
@@ -33,8 +33,20 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="wall.php">Home</a></li>
                 <li><a href="profile.php">Profile</a></li>
-                <li><a href="message.php">Messages</a></li>
+                <li><a href="start_message.php">Messages</a></li>
             </ul>
+              <div class="col-xs-8 col-md-8 center-block">
+                  <div class="search"> 
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control"  placeholder="Search" >
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                              </button>  
+                          </span>
+                      </div>
+                  </div>
+              </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -51,14 +63,14 @@
 
 <div class="container">
   <div class="row">
-      <form method="post" action="insert.php">
-      <div class="col-xs-8 col-md-12 feed_textarea">
-              <textarea class="form-control" name="content" rows="2"></textarea>
-        <div class="pull-right col-xs-4 col-md-2 profile_button">
-          <button type="submit" name="post_button" class="btn btn-primary"><i class="glyphicon glyphicon-bullhorn"></i></button>
-          </div>
-        </div>
-      </form>
+  <div class="input-group status-box"><!-- textarea -->
+    <form method="post" action="insert.php">
+      <textarea class="form-control status-text" name="content" rows="3" style="width:1090px; height:77px;"></textarea>
+        <span class="group-addon pull-right">
+            <button type="submit" name="post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+         </span>   
+    </form>
+  </div><!-- textarea -->
     <div class="span8">
         <?php
         $updateFetch = $db->prepare("SELECT * FROM status_updates
@@ -89,7 +101,7 @@
         <div class="bottom">
           <div class="row">
             <div class="bottom_left">
-              <p>left</p>
+
             </div>
             <div class="bottom_right">
                 <?php echo(substr($updateRow["created"],0,-3))?>
