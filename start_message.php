@@ -33,7 +33,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         <ul class="nav navbar-nav">
           <li><a href="wall.php">Home</a></li>
           <li><a href="profile.php">Profile</a></li>
-          <li class="active"><a href="message.php">Messages</a></li>
+          <li class="active"><a href="start_message.php">Messages</a></li>
         </ul>
          <div class="col-xs-8 col-md-8 center-block">
           <div class="search"> 
@@ -53,7 +53,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
               <li><a href="#"> Preferences</a></li>
               <li><a href="#"> Contact Support</a></li>
               <li class="#"></li>
-              <li><a href="#"> Logout</a></li>
+              <li><a href="logout.php"> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -65,12 +65,15 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <div class="container">
   <div class="panel panel-default">
   <div class="panel-heading">
+  <!--
     <div class="search"> 
       <div class="input-group stylish-input-group">
 
 
       </div>
     </div>
+-->
+
   </div>
   <div class="panel-body">
     <div class="col-xs-6 col-md-4">
