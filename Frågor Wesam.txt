@@ -1,0 +1,3 @@
+Hur funkar det med att submitta formulär?
+
+SQL för att inte få dubletter?
