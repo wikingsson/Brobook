@@ -1,10 +1,3 @@
-<?php
-    session_start();
-
-    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +5,8 @@
     <title>Brobook</title>
     <meta name="description" content="Da shit">
     <meta name="author" content="Brobook">
-    <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
-    <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
+    <link href="../../Brobook/css/bootstrap.css" rel="stylesheet">
+    <link href='../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -73,11 +66,8 @@
   </div><!-- textarea -->
     <div class="span8">
         <?php
-        $updateFetch = $db->prepare("SELECT * FROM status_updates
-                                     JOIN users ON (users.user_id = status_updates.user_id)
-                                     ORDER BY created DESC");
-        if($updateFetch->execute()){
-        while($updateRow = $updateFetch->fetch()){
+        if($showStatusStm->execute()){
+        while($updateRow = $showStatusStm->fetch()){
             if($updateRow["profile_img"] == null){
                 $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
             }
@@ -118,8 +108,8 @@
     </div> <!-- End Row -->
     </div> <!-- container -->
 
-      <script src="../../../Brobook/js/jquery.min.js" type="text/javascript"></script>
-      <script src="../../../Brobook/js/bootstrap.js"></script>
-      <script src="../../../Brobook/js/brobook.js"></script>
+      <script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
+      <script src="../../Brobook/js/bootstrap.js"></script>
+      <script src="../../Brobook/js/brobook.js"></script>
 </body>
 </html>

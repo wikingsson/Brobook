@@ -20,6 +20,7 @@ Class Usercontroller{
     public function loginUser(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+        require_once "views/login.php";
 
         if(isset($_POST["login_submit"])){
             $loginStm = $db->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
@@ -34,7 +35,8 @@ Class Usercontroller{
                 $_SESSION["user"] = $userId["firstname"] . " " . $userId["lastname"];
                 $_SESSION["userId"] = $userId["user_id"];
                 //Dont use header, use require.
-                header("location:logincheck.php");
+
+                header("location:status/showstatus");
             }
             else{
 
@@ -43,6 +45,17 @@ Class Usercontroller{
 
             }
         }
+    }
+
+    public function showUser(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+        $showUserStm = $db->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $showUserStm->bindParam(":user_id", $_POST["user_id"]);
+        $showUserStm->execute();
+
+        //Send to selected users profile
+
     }
 
     public function updateUser(){

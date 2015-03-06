@@ -1,3 +1,7 @@
-Hur funkar det med att submitta formulär?
 
 SQL för att inte få dubletter?
+
+
+Dela upp SQL (actions) om man är på sin på profile eller wall.
+
+Message SQL, hur lägga till fler users?
