@@ -54,12 +54,11 @@ Class Usercontroller{
     public function showUser(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-        $showUserStm = $db->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE user_id = :user_id");
         $showUserStm->bindParam(":user_id", $_POST["user_id"]);
         $showUserStm->execute();
 
-        //Send to selected users profile
-
+        require_once "views/profile.php";
     }
 
     public function updateUser(){
@@ -72,9 +71,12 @@ Class Usercontroller{
         $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
         $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
 
-        $updateUserStm->execute();
+        if($updateUserStm->execute()){
+            header("location:user/showUser");
+        }
 
         //Send back to profile if everything went ok.
+        //require_once "views/updateuser.php";
     }
 
 
@@ -93,5 +95,7 @@ Class Usercontroller{
         $userDeleteStm->execute();
 
         $this->logoutUser();
+
+        //require_once "views/updateuser.php";
     }
 }
