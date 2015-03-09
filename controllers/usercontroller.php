@@ -15,12 +15,16 @@ Class Usercontroller{
         }
 
         // Need to Send user back to loginpage.
+        header("location: /Brobook");
+    }
+
+    public function showForm(){
+        require_once "views/login.php";
     }
 
     public function loginUser(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-        require_once "views/login.php";
 
         if(isset($_POST["login_submit"])){
             $loginStm = $db->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
@@ -34,9 +38,8 @@ Class Usercontroller{
                 $_SESSION["status"] = "loggedIn";
                 $_SESSION["user"] = $userId["firstname"] . " " . $userId["lastname"];
                 $_SESSION["userId"] = $userId["user_id"];
-                //Dont use header, use require.
 
-                header("location:status/showstatus");
+                header("location:../status/showStatus");
             }
             else{
 
@@ -45,6 +48,7 @@ Class Usercontroller{
 
             }
         }
+
     }
 
     public function showUser(){
@@ -78,7 +82,7 @@ Class Usercontroller{
         session_unset();
         session_destroy();
 
-        //Back to login page.
+        header("location: /BroBook");
     }
 
     public function deleteUser(){
@@ -88,7 +92,6 @@ Class Usercontroller{
         $userDeleteStm->bindParam("user_id", $_POST["user_id"]);
         $userDeleteStm->execute();
 
-        //Send to logout action.
-
+        $this->logoutUser();
     }
 }
