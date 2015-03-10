@@ -45,8 +45,8 @@ Class Statuscontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         session_start();
         $showStatusStm = $db->prepare("SELECT * FROM status_updates SU, users U, friends F WHERE CASE WHEN F.friend_one = :curr_user THEN F.friend_two = U.user_id WHEN F.friend_two = :curr_user THEN F.friend_one = U.user_id END AND (U.user_id = SU.user_id) AND (F.friend_one = :curr_user OR F.friend_two = :curr_user)");
-        $showStatusStm->bindParam(":curr_user", $_SESSION["current_user"]);
-        //$showStatusStm->execute();
+        $showStatusStm->bindParam(":curr_user", $_SESSION["userId"]);
+        $showStatusStm->execute();
 
         require_once "views/wall.php";
 
