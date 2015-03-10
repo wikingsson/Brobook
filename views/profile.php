@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand">BroBook</a>
+        <a href="../user/showUser" class="navbar-brand">BroBook</a>
       </div>
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -47,7 +47,7 @@
               <li><a href="#"> Preferences</a></li>
               <li><a href="#"> Contact Support</a></li>
               <li class="#"></li>
-              <li><a href="logout.php"> Logout</a></li>
+              <li><a href="../user/logoutUser"> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -80,8 +80,8 @@
 
 
               <div class="input-group status-box"><!-- textarea -->
-                <form method="post" action="status/addStatus">
-                  <textarea class="form-control status-text" name="profile_content" rows="3" style="width:750px; height:77px;"></textarea>
+                <form method="post" action="../status/addStatus">
+                  <textarea class="form-control status-text" name="content" rows="3" style="width:750px; height:77px;"></textarea>
                   <span class="group-addon pull-right">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
                   </span>   
@@ -99,7 +99,7 @@
               while($profileRow = $showUserStm->fetch()){
                 ?>
 
-                <form method="post" action="status/deleteStatus">
+                <form method="post" action="../status/deleteStatus">
                   <div class="col-xs-12 col-md-12 feed">
                     <div class="feed_body">
                       <div class="row">

@@ -19,7 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">BroBook</a>
+            <a href="../user/showUser" class="navbar-brand">BroBook</a>
         </div>
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -80,7 +80,7 @@
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
               <img src="<?php echo($picture) ?>" alt="meta image" class="meta_image" />
-              <a href="profile.php"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
+              <a href="../user/showUser"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
             <p><?php echo($updateRow["content"])?></p>

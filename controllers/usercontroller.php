@@ -18,6 +18,8 @@ Class Usercontroller{
         header("location: /Brobook");
     }
 
+    // Validation needed
+
     public function showForm(){
         require_once "views/login.php";
     }
@@ -50,6 +52,8 @@ Class Usercontroller{
         }
 
     }
+
+    // Validation of email and password needed
 
     public function showUser(){
 
