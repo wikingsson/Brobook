@@ -15,12 +15,16 @@ Class Usercontroller{
         }
 
         // Need to Send user back to loginpage.
+        header("location: /Brobook");
+    }
+
+    public function showForm(){
+        require_once "views/login.php";
     }
 
     public function loginUser(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-        require_once "views/login.php";
 
         if(isset($_POST["login_submit"])){
             $loginStm = $db->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
@@ -34,9 +38,8 @@ Class Usercontroller{
                 $_SESSION["status"] = "loggedIn";
                 $_SESSION["user"] = $userId["firstname"] . " " . $userId["lastname"];
                 $_SESSION["userId"] = $userId["user_id"];
-                //Dont use header, use require.
 
-                header("location:status/showstatus");
+                header("location:../status/showStatus");
             }
             else{
 
@@ -45,17 +48,19 @@ Class Usercontroller{
 
             }
         }
+
     }
 
     public function showUser(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-        $showUserStm = $db->prepare("SELECT * FROM users WHERE user_id = :user_id");
-        $showUserStm->bindParam(":user_id", $_POST["user_id"]);
-        $showUserStm->execute();
 
-        //Send to selected users profile
+        session_start();
+        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
+        $showUserStm->bindParam(":user_id", $_SESSION["userId"]);
+        //$showUserStm->execute();
 
+        require_once "views/profile.php";
     }
 
     public function updateUser(){
@@ -68,9 +73,12 @@ Class Usercontroller{
         $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
         $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
 
-        $updateUserStm->execute();
+        if($updateUserStm->execute()){
+            header("location:user/showUser");
+        }
 
         //Send back to profile if everything went ok.
+        //require_once "views/updateuser.php";
     }
 
 
@@ -78,7 +86,7 @@ Class Usercontroller{
         session_unset();
         session_destroy();
 
-        //Back to login page.
+        header("location: /BroBook");
     }
 
     public function deleteUser(){
@@ -88,7 +96,8 @@ Class Usercontroller{
         $userDeleteStm->bindParam("user_id", $_POST["user_id"]);
         $userDeleteStm->execute();
 
-        //Send to logout action.
+        $this->logoutUser();
 
+        //require_once "views/updateuser.php";
     }
 }

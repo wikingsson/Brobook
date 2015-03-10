@@ -24,8 +24,8 @@
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="wall.php">Home</a></li>
-                <li><a href="profile.php">Profile</a></li>
+                <li class="active"><a href="../status/showStatus">Home</a></li>
+                <li><a href="../user/showUser">Profile</a></li>
                 <li><a href="start_message.php">Messages</a></li>
             </ul>
               <div class="col-xs-8 col-md-8 center-block">
@@ -46,7 +46,7 @@
                     <li><a href="#"> Preferences</a></li>
                     <li><a href="#"> Contact Support</a></li>
                     <li class="#"></li>
-                    <li><a href="#"> Logout</a></li>
+                    <li><a href="../user/logoutUser"> Logout</a></li>
                    </ul>
                 </li>
             </ul>
@@ -57,10 +57,10 @@
 <div class="container">
   <div class="row">
   <div class="input-group status-box"><!-- textarea -->
-    <form method="post" action="insert.php">
+    <form method="post" action="../status/addStatus">
       <textarea class="form-control status-text" name="content" rows="3" style="width:1090px; height:77px;"></textarea>
         <span class="group-addon pull-right">
-            <button type="submit" name="post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+            <button type="submit" name="wall_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
          </span>   
     </form>
   </div><!-- textarea -->
