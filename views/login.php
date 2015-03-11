@@ -13,7 +13,7 @@
   <div class="row">
 
 
-<form class="form-horizontal pull-right" action='status/showStatus' method="POST">
+<form class="form-horizontal pull-right" action='user/loginUser' method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Login</legend>
