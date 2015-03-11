@@ -110,9 +110,9 @@
         $tabNr2 = 1;
         //print_r($c_idArray);
 
-        //Loops
+        //Loops through the number of conversations and creates them.
         for($i = 0; $i < $count; $i++){
-
+            //Sets the first tab to active. 
             if($tabNr2 == 1){
                 $isActive2 = "active";
             }
