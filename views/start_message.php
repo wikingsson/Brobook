@@ -112,7 +112,7 @@
 
         //Loops through the number of conversations and creates them.
         for($i = 0; $i < $count; $i++){
-            //Sets the first tab to active. 
+            //Sets the first tab to active.
             if($tabNr2 == 1){
                 $isActive2 = "active";
             }
