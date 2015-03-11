@@ -1,10 +1,4 @@
-<?php
 
-session_start();
-
-$db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +6,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   <title>Brobook</title>
   <meta name="description" content="Da shit">
   <meta name="author" content="Brobook">
-  <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
-  <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href='../css/maincss.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -31,8 +25,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="wall.php">Home</a></li>
-          <li><a href="profile.php">Profile</a></li>
+          <li><a href="../status/showStatus">Home</a></li>
+          <li><a href="../user/showUser">Profile</a></li>
           <li class="active"><a href="start_message.php">Messages</a></li>
         </ul>
          <div class="col-xs-8 col-md-8 center-block">
@@ -83,10 +77,9 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
        </span>
         <ul class="nav tabs">
           <?php
-          $conversationStm = $db->prepare("SELECT * FROM conversation_users JOIN conversation ON (conversation_users.conversation_id = conversation.conversation_id) JOIN users ON (users.user_id = conversation_users.user_id) WHERE users.user_id = 3");
-          if($conversationStm->execute()){
+          if($showConversationListStm->execute()){
             $tabNr = 1;
-            while($convRow = $conversationStm->fetch()){
+            while($convRow = $showConversationListStm->fetch()){
                 if($tabNr == 1){
                     $isActive = "active";
                 }
