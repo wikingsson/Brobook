@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../status/showStatus">Home</a></li>
                 <li><a href="../user/showUser">Profile</a></li>
-                <li><a href="start_message.php">Messages</a></li>
+                <li><a href="../message/showConversation">Messages</a></li>
             </ul>
               <div class="col-xs-8 col-md-8 center-block">
                   <div class="search"> 

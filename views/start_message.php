@@ -6,8 +6,8 @@
   <title>Brobook</title>
   <meta name="description" content="Da shit">
   <meta name="author" content="Brobook">
-  <link href="../css/bootstrap.css" rel="stylesheet">
-  <link href='../css/maincss.css' rel='stylesheet' type='text/css'>
+  <link href="../../Brobook/css/bootstrap.css" rel="stylesheet">
+  <link href='../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -87,7 +87,7 @@
                     $isActive = "";
                 }
           ?>
-              <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" data-toggle="tab"><?php echo($convRow["name"])?></a></li>
+              <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" data-toggle="tab"><?php echo($convRow["conv_name"])?></a></li>
             <?php
                 $tabNr++;
             }
@@ -108,13 +108,13 @@
           <div class="media">
             <div class="media-left">
               <img class="media-object" src="" alt="...">
-            </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading"></h4>
-            <p>HEJ</p>
-          </div>
-        </div><!-- end message -->
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"></h4>
+                <p>HEJ</p>
+            </div>
+          </div><!-- end message -->
         <div class="media">
           <div class="media-left">
             <img class="media-object" src="" alt="...">
