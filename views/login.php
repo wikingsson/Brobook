@@ -22,7 +22,7 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" required>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required>
         <p></p>
       </div>
     </div>
@@ -54,7 +54,7 @@
       <!-- first name -->
       <label class="control-label"  for="first_name">First Name</label>
       <div class="controls">
-        <input type="text" id="first_name" name="firstname" placeholder="" class="input-xlarge">
+        <input type="text" id="first_name" name="firstname" placeholder="" class="input-xlarge" required>
       </div>
     </div>
 
@@ -62,7 +62,7 @@
       <!-- Last Name -->
       <label class="control-label"  for="last_name">Last Name</label>
       <div class="controls">
-        <input type="text" id="last_name" name="lastname" placeholder="" class="input-xlarge">
+        <input type="text" id="last_name" name="lastname" placeholder="" class="input-xlarge" required>
       </div>
     </div>
  
@@ -70,7 +70,7 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" required>
         <p class="help-block">Please provide your E-mail</p>
       </div>
     </div>
@@ -79,7 +79,7 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required>
         <p class="help-block">Password should be at least 4 characters</p>
       </div>
     </div>
