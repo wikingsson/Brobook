@@ -67,6 +67,18 @@ Class Usercontroller{
         require_once "views/profile.php";
     }
 
+    public function showOtherUser(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+
+        session_start();
+        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
+        $showUserStm->bindParam(":user_id", $_POST["userId"]);
+        //$showUserStm->execute();
+
+        //require_once "views/friendprofile.php";
+    }
+
     public function updateUser(){
         //Change PP and other stuff
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
@@ -87,6 +99,7 @@ Class Usercontroller{
 
 
     public function logoutUser(){
+        session_start();
         session_unset();
         session_destroy();
 

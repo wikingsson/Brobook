@@ -82,15 +82,9 @@
 
 
               <div class="input-group status-box"><!-- textarea -->
-<<<<<<< HEAD
                 <form method="post" action="../status/addStatus">
                   <textarea class="form-control status-text" name="content" rows="3" style="width:750px; height:77px;"></textarea>
-=======
 
-                <form method="post" action="status/addStatus">
-
-                  <textarea class="form-control status-text" name="profile_content" rows="3" style="width:750px; height:77px;"></textarea>
->>>>>>> mikaelbang
                   <span class="group-addon pull-right">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
                   </span>   
