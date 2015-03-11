@@ -24,6 +24,17 @@ Class Friendscontroller{
 
     }
 
+    public function declineFriend(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+        $declined = 2;
+        $declinedFriendStm = $db->prepare("UPDATE friends SET status = :declined");
+        $declinedFriendStm->bindParam(":declined", $declined);
+        $declinedFriendStm->execute();
+
+        //Make sure you cant ask again?
+    }
+
     public function showFriends(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
