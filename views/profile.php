@@ -6,8 +6,8 @@
   <title>Brobook</title>
   <meta name="description" content="Da shit">
   <meta name="author" content="Brobook">
-  <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
-  <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href='../css/maincss.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -27,7 +27,8 @@
         <ul class="nav navbar-nav">
           <li><a href="../status/showStatus">Home</a></li>
           <li class="active"><a href="../user/showUser">Profile</a></li>
-          <li><a href="start_message.php">Messages</a></li>
+
+          <li><a href="../message/showConversation">Messages</a></li>
         </ul>
         <div class="col-xs-8 col-md-8 center-block">
           <div class="search"> 
@@ -59,6 +60,7 @@
 
       <?php
 
+
       if($showUserStm->execute()){
         $userRow = $showUserStm->fetch();
         if($userRow["profile_img"] == null){
@@ -80,13 +82,21 @@
 
 
               <div class="input-group status-box"><!-- textarea -->
+<<<<<<< HEAD
                 <form method="post" action="../status/addStatus">
                   <textarea class="form-control status-text" name="content" rows="3" style="width:750px; height:77px;"></textarea>
+=======
+
+                <form method="post" action="status/addStatus">
+
+                  <textarea class="form-control status-text" name="profile_content" rows="3" style="width:750px; height:77px;"></textarea>
+>>>>>>> mikaelbang
                   <span class="group-addon pull-right">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
                   </span>   
                 </form>
               </div><!-- textarea -->
+
 
               <?php
             }

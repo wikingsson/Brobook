@@ -5,8 +5,13 @@
     <title>Brobook</title>
     <meta name="description" content="Da shit">
     <meta name="author" content="Brobook">
+<<<<<<< HEAD
     <link href="../../Brobook/css/bootstrap.css" rel="stylesheet">
     <link href='../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
+=======
+    <link href="../../Brobook/css/bootstrap.css" media="all" rel="stylesheet">
+    <link href='../../Brobook/css/maincss.css' media="all" rel='stylesheet' type='text/css'>
+>>>>>>> mikaelbang
   </head>
   <body>
 <div class="container">

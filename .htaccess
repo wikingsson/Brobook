@@ -11,3 +11,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 #rewrite all URLs to index.php
 RewriteEngine On
 RewriteRule ^(.*)$ router.php [PT,L]
+
