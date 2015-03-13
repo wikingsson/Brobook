@@ -1,10 +1,3 @@
-<?php
-    session_start();
-
-    $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +5,8 @@
     <title>Brobook</title>
     <meta name="description" content="Da shit">
     <meta name="author" content="Brobook">
-    <link href="../../../Brobook/css/bootstrap.css" rel="stylesheet">
-    <link href='../../../Brobook/css/maincss.css' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href='../css/maincss.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
   <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -31,9 +24,9 @@
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="wall.php">Home</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="start_message.php">Messages</a></li>
+                <li class="active"><a href="../status/showStatus">Home</a></li>
+                <li><a href="../user/showUser">Profile</a></li>
+                <li><a href="../message/showConversation">Messages</a></li>
             </ul>
               <div class="col-xs-8 col-md-8 center-block">
                   <div class="search"> 
@@ -53,7 +46,7 @@
                     <li><a href="#"> Preferences</a></li>
                     <li><a href="#"> Contact Support</a></li>
                     <li class="#"></li>
-                    <li><a href="#"> Logout</a></li>
+                    <li><a href="../user/logoutUser"> Logout</a></li>
                    </ul>
                 </li>
             </ul>
@@ -64,20 +57,17 @@
 <div class="container">
   <div class="row">
   <div class="input-group status-box"><!-- textarea -->
-    <form method="post" action="insert.php">
+    <form method="post" action="../status/addStatus">
       <textarea class="form-control status-text" name="content" rows="3" style="width:1090px; height:77px;"></textarea>
         <span class="group-addon pull-right">
-            <button type="submit" name="post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+            <button type="submit" name="wall_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
          </span>   
     </form>
   </div><!-- textarea -->
     <div class="span8">
         <?php
-        $updateFetch = $db->prepare("SELECT * FROM status_updates
-                                     JOIN users ON (users.user_id = status_updates.user_id)
-                                     ORDER BY created DESC");
-        if($updateFetch->execute()){
-        while($updateRow = $updateFetch->fetch()){
+        if($showStatusStm->execute()){
+        while($updateRow = $showStatusStm->fetch()){
             if($updateRow["profile_img"] == null){
                 $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
             }
@@ -118,8 +108,8 @@
     </div> <!-- End Row -->
     </div> <!-- container -->
 
-      <script src="../../../Brobook/js/jquery.min.js" type="text/javascript"></script>
-      <script src="../../../Brobook/js/bootstrap.js"></script>
-      <script src="../../../Brobook/js/brobook.js"></script>
+      <script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
+      <script src="../../Brobook/js/bootstrap.js"></script>
+      <script src="../../Brobook/js/brobook.js"></script>
 </body>
 </html>
