@@ -183,8 +183,8 @@
 </div> <!-- container -->
 
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/brobook.js"></script>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/brobook.js"></script>
 </body> 
 </html>
