@@ -7,10 +7,10 @@ Class Usercontroller{
 
         if(isset($_POST["register_submit"])){
             $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
-            $stm->bindParam(":firstname", $_POST["firstname"]);
-            $stm->bindParam(":lastname", $_POST["lastname"]);
-            $stm->bindParam(":email", $_POST["email"]);
-            $stm->bindParam(":password", $_POST["password"]);
+            $stm->bindParam(":firstname", $_POST["firstname"], PDO:: PARAM_STR);
+            $stm->bindParam(":lastname", $_POST["lastname"], PDO:: PARAM_STR);
+            $stm->bindParam(":email", $_POST["email"], PDO:: PARAM_STR);
+            $stm->bindParam(":password", $_POST["password"], PDO:: PARAM_STR);
             $stm->execute();
         }
 
@@ -57,7 +57,7 @@ Class Usercontroller{
 
         session_start();
         $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
-        $showUserStm->bindParam(":user_id", $_SESSION["userId"]);
+        $showUserStm->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_INT);
         //$showUserStm->execute();
 
         require_once "views/profile.php";
@@ -68,10 +68,10 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
-        $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
-        $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
-        $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
-        $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
+        $updateUserStm->bindParam(":firstname", $_POST["first_name"], PDO:: PARAM_STR);
+        $updateUserStm->bindParam(":lastname", $_POST["last_name"], PDO:: PARAM_STR);
+        $updateUserStm->bindParam(":p_img", $_POST["profile_img"], PDO:: PARAM_STR);
+        $updateUserStm->bindParam(":user_id", $_POST["user_id"], PDO:: PARAM_INT);
 
         if($updateUserStm->execute()){
             header("location:user/showUser");
@@ -93,7 +93,7 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         $userDeleteStm = $db->prepare("DELETE FROM users WHERE user_id = :user_id");
-        $userDeleteStm->bindParam("user_id", $_POST["user_id"]);
+        $userDeleteStm->bindParam("user_id", $_POST["user_id"], PDO:: PARAM_INT);
         $userDeleteStm->execute();
 
         $this->logoutUser();
