@@ -3,6 +3,11 @@ body {
 	background: url("../img/billie_holiday.png") repeat;
 }
 
+
+.center {
+	text-align: center;
+}
+
 .feed {
 	background-color:#fff;
 	-webkit-border-radius: 6px;

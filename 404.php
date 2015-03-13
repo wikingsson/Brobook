@@ -40,8 +40,8 @@
             </div>
           </div>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
+        <ul class="nav navbar-nav navbar-right"><!--
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>-->
             <ul class="dropdown-menu">
               <li><a href="#"> Preferences</a></li>
               <li><a href="#"> Contact Support</a></li>
@@ -57,7 +57,11 @@
 
 <div class="container">
 <div class="row">
-  <h2>FUUCK</h2>
+  <div class="404 center">
+    <h2>OOOPPPSss....404</h2>
+    <h1>Page not found</h1>
+    <img src="http://i.imgur.com/HChIIDs.jpg">
+  </div>
 </div> 
 </div> <!-- container -->
 
