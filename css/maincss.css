@@ -1,11 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 body {
 	padding-top: 80px;
+	background-color: #f2f2f2;
+	font-family: 'Ruda', sans-serif;
+	font-size:13px;
+	/*
 	background: url("../img/billie_holiday.png") repeat;
+	*/
 }
 
 
-.center {
-	text-align: center;
+.navbar-nav > li > a {
+	padding-top: 20px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	min-height: 60px;
+}
+
+.navbar-default {
+	background-color: #424a5d;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #aeb2b7;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: #fff;
 }
 
 .feed {
@@ -134,4 +161,60 @@ textarea {
 .bottom_left >.btn {
 	border: 0px;
 	padding: 0px;
+}
+
+.friend-list {
+    border-radius: 0px;
+	background: #ffffff;
+	margin: 5px;
+	width: 49%;
+	text-align: left;
+}
+
+.wrapper {
+    display: inline-block;
+    margin-top: 60px;
+    padding-bottom: 15px;
+    padding-top: 0px;
+    width: 100%;
+}
+
+.well {
+	border: 1px solid #efefef;
+	width: 154px;
+	min-height: 200px;
+	padding: 0px;
+	margin: 10px;
+	background-color: #fff;
+	border-radius: 0px;
+
+}
+.well > center > a > img {
+	margin-top: 5px;
+}
+
+.panel {
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	border: 0px;
+	border-radius: 0px;
+}
+
+.panel .panel-heading {
+	background-color: #ffffff;
+	font-weight: 700;
+	font-size: 16px;
+	color: #262626;
+	border: 0px;
+	border-radius: 0px;
+}
+
+.panel {
+
+
+}
+
+.fheader {
+	border: 0 solid #efefef;
+	border-bottom-width: 1px;
+	padding-bottom: 10px;
 }
