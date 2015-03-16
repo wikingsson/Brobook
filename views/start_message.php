@@ -73,7 +73,7 @@
     <div class="col-xs-6 col-md-4">
       <nav class="nav-sidebar">
         <span class="">
-          <button type="submit" name="" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
+          <button type="submit" name="" id="create_conversation_button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
        </span>
         <ul class="nav tabs">
           <?php
@@ -90,7 +90,10 @@
                 }
                 array_push($c_idArray, $convRow["conversation_id"]);
           ?>
-              <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" data-toggle="tab"><?php echo($convRow["conv_name"])?></a></li>
+              <form id="conv_form" method="post" action="message/showConversation">
+                <input type="hidden" name="c_id" value="<?php echo($convRow["conversation_id"])?>">
+                <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" onclick="submitForm()" name="linkSubmit" data-toggle="tab"><?php echo($convRow["conv_name"])?></a></li>
+              </form>
             <?php
 
                 $tabNr++;
@@ -121,47 +124,28 @@
             }
         ?>
           <div class="tab-pane <?php echo($isActive2)?> text-style" id="tab<?php $id = array_shift($c_idArray); echo($id)?>">
-              <div class="media">
-                  <div class="media-left">
-                      <img class="media-object" src="" alt="...">
-                      </a>
-                  </div>
-                  <div class="media-body">
-                      <h4 class="media-heading"></h4>
-                      <p><?php
-                          if($tabNr2 == 1){
-                              echo("This is nr 1");
-                          }
-                          elseif($tabNr2 == 2){
-                              echo("This is nr 2");
-                          }
-                          elseif($tabNr2 == 3){
-                              echo("This is nr 3");
-                          }?></p>
-                  </div>
-              </div><!-- end message -->
-              <div class="media">
-                  <div class="media-left">
-                      <img class="media-object" src="" alt="...">
-                      </a>
-                  </div>
-                  <div class="media-body">
-                      <h4 class="media-heading"></h4>
-                      <p><?php
-                          if($tabNr2 == 1){
-                              echo("end nr 1");
-                          }
-                          elseif($tabNr2 == 2){
-                              echo("end nr 2");
-                          }
-                          elseif($tabNr2 == 3){
-                              echo("end nr 3");
-                          }?></p>
-                  </div>
-              </div><!-- end message -->
+              <?php
+              $messageRow = $showMessageStm->fetchAll();
+
+              print_r($messageRow);
+
+              ?>
+                  <div class="media">
+                      <div class="media-left">
+                          <img class="media-object" src="<?php echo($messageRow["profile_img"])?>" alt="...">
+                          </a>
+                      </div>
+                      <div class="media-body">
+                          <h4 class="media-heading"></h4>
+                          <p><?php echo($messageRow["content"])?></p>
+                      </div>
+                  </div><!-- end message -->
+
+
               <div class="input-group text-box"><!-- textarea -->
                   <form method="post" action="">
-                      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+                      <textarea name="message_content" class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+                      <input type="hidden" name="hidden_c_id" value=""/>
               <span class="group-addon pull-right">
                   <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
                </span>
