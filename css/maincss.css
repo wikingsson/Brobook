@@ -245,3 +245,11 @@ textarea {
 	border-bottom-width: 1px;
 	padding-bottom: 10px;
 }
+
+
+@media all and (max-width: 800px) {
+	.feed_profile > img {
+		display: none;
+	}
+}
+
