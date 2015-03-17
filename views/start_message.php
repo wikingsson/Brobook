@@ -205,15 +205,9 @@
 </div> <!-- panel end -->
 </div> <!-- container -->
 
-
-<<<<<<< HEAD
 <script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
 <script src="../../Brobook/js/bootstrap.js"></script>
 <script src="../../Brobook/js/brobook.js"></script>
-=======
-<script src="../js/jquery.min.js" type="text/javascript"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/brobook.js"></script>
->>>>>>> master
+
 </body> 
 </html>
