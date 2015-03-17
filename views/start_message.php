@@ -29,8 +29,7 @@
           <li><a href="../user/showUser">Profile</a></li>
           <li class="active"><a href="../message/showConversation">Messages</a></li>
         </ul>
-         <div class="col-xs-8 col-md-8 center-block">
-          <div class="search"> 
+         <div class="col-xs-8 col-md-8 center-block search">
             <div class="input-group stylish-input-group">
               <input type="text" class="form-control"  placeholder="Search" >
               <span class="input-group-addon">
@@ -39,7 +38,6 @@
                 </button>  
               </span>
             </div>
-          </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
