@@ -70,26 +70,55 @@
   <div class="panel-body">
     <div class="col-xs-6 col-md-4">
       <nav class="nav-sidebar">
-        <span class="">
-          <button type="submit" name="" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
-       </span>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#start_message" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
+
+          <div class="modal fade" id="start_message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">Create Conversation</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="control-label">User:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="control-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <ul class="nav tabs">
           <?php
-          if($showConversationListStm->execute()){
+          //if($showConversationListStm->execute()){
             $tabNr = 1;
-            while($convRow = $showConversationListStm->fetch()){
+            $c_idArray = array();
+          while($convRow = $showConversationListStm->fetch()){
+
                 if($tabNr == 1){
                     $isActive = "active";
                 }
                 else{
                     $isActive = "";
                 }
+                array_push($c_idArray, $convRow["conversation_id"]);
           ?>
               <li class="<?php echo($isActive)?>"><a href="#tab<?php echo($convRow["conversation_id"])?>" data-toggle="tab"><?php echo($convRow["conv_name"])?></a></li>
             <?php
+
                 $tabNr++;
             }
-          }
+          //}
           ?>
         </ul>
       </nav>
@@ -99,99 +128,77 @@
     <div class="col-xs-12 col-md-8">
       <div class="tab-content">
         <?php
-        //$messageStm = $db->prepare("SELECT * FROM messages WHERE conversation_id = :conv_id");
-        //$messageStm->bindParam(":conv_id", $convRow);
+        //Counts how many conversations there are so the right amount of tabs is created
+        $count = $tabNr - 1;
+        $tabNr2 = 1;
+        //print_r($c_idArray);
+
+        //Loops through the number of conversations and creates them.
+        for($i = 0; $i < $count; $i++){
+            //Sets the first tab to active.
+            if($tabNr2 == 1){
+                $isActive2 = "active";
+            }
+            else{
+                $isActive2 = "";
+            }
         ?>
-        <div class="tab-pane active text-style" id="tab1">
-          <div class="media">
-            <div class="media-left">
-              <img class="media-object" src="" alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading"></h4>
-                <p>HEJ</p>
-            </div>
-          </div><!-- end message -->
-        <div class="media">
-          <div class="media-left">
-            <img class="media-object" src="" alt="...">
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"></h4>
-          <p>Dåå</p>
-        </div>
-      </div><!-- end message -->
-        <div class="input-group text-box"><!-- textarea -->
-          <form method="post" action="">
-            <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
+          <div class="tab-pane <?php echo($isActive2)?> text-style" id="tab<?php $id = array_shift($c_idArray); echo($id)?>">
+              <div class="media">
+                  <div class="media-left">
+                      <img class="media-object" src="" alt="...">
+                      </a>
+                  </div>
+                  <div class="media-body">
+                      <h4 class="media-heading"></h4>
+                      <p><?php
+                          if($tabNr2 == 1){
+                              echo("This is nr 1");
+                          }
+                          elseif($tabNr2 == 2){
+                              echo("This is nr 2");
+                          }
+                          elseif($tabNr2 == 3){
+                              echo("This is nr 3");
+                          }?></p>
+                  </div>
+              </div><!-- end message -->
+              <div class="media">
+                  <div class="media-left">
+                      <img class="media-object" src="" alt="...">
+                      </a>
+                  </div>
+                  <div class="media-body">
+                      <h4 class="media-heading"></h4>
+                      <p><?php
+                          if($tabNr2 == 1){
+                              echo("end nr 1");
+                          }
+                          elseif($tabNr2 == 2){
+                              echo("end nr 2");
+                          }
+                          elseif($tabNr2 == 3){
+                              echo("end nr 3");
+                          }?></p>
+                  </div>
+              </div><!-- end message -->
+              <div class="input-group text-box"><!-- textarea -->
+                  <form method="post" action="">
+                      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
               <span class="group-addon pull-right">
                   <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
-               </span>   
-          </form>
-        </div><!-- textarea -->
-    </div>
-        <div class="tab-pane text-style" id="tab2">
-      <div class="media">
-        <div class="media-left">
-          <img class="media-object" src="" alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading"></h4>
-        <p>Tjena</p>
-      </div>
-    </div><!-- end message -->
-    <div class="media">
-      <div class="media-left">
-        <img class="media-object" src="" alt="...">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"></h4>
-      <p>hej</p>
-    </div>
-  </div><!-- end message -->
-  <div class="input-group text-box"><!-- textarea -->
-    <form method="post" action="">
-      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
-        <span class="group-addon pull-right">
-            <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
-         </span>   
-    </form>
-  </div><!-- textarea --> 
-</div>
-        <div class="tab-pane text-style" id="tab3">
-  <div class="media">
-    <div class="media-left">
-      <img class="media-object" src="" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading"></h4>
-    <p>hehhehehehe</p>
-  </div>
-</div><!-- end message -->
-<div class="media">
-  <div class="media-left">
-    <img class="media-object" src="" alt="...">
-  </a>
-</div>
-<div class="media-body">
-  <h4 class="media-heading"></h4>
-  <p>hehhehehehe</p>
-</div>
-</div><!-- end message -->
-  <div class="input-group text-box"><!-- textarea -->
-    <form method="post" action="">
-      <textarea class="form-control" rows="3" style="width:630px; height:78px;"></textarea>
-        <span class="group-addon pull-right">
-            <button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
-         </span>   
-    </form>
-  </div><!-- textarea -->
-</div>
+               </span>
+                  </form>
+              </div><!-- textarea -->
+          </div>
+          <?php
+            $tabNr2++;
+
+        }
+
+        ?>
+
+
 </div> <!-- tab end -->
 </div> <!-- conv end -->
 </div> <!-- panel body -->
@@ -199,8 +206,14 @@
 </div> <!-- container -->
 
 
+<<<<<<< HEAD
 <script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
 <script src="../../Brobook/js/bootstrap.js"></script>
 <script src="../../Brobook/js/brobook.js"></script>
+=======
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/brobook.js"></script>
+>>>>>>> master
 </body> 
 </html>

@@ -59,6 +59,10 @@
       <?php
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
       if($showUserStm->execute()){
         $userRow = $showUserStm->fetch();
         if($userRow["profile_img"] == null){
@@ -78,6 +82,7 @@
               <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
 
 
+<<<<<<< HEAD
 
               <div class="input-group status-box"><!-- textarea -->
                 <form method="post" action="../status/addStatus">
@@ -85,10 +90,21 @@
 
                   <span class="group-addon pull-right">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>
+=======
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <!-- textarea -->
+                <form method="post" action="status/addStatus">
+                <div class="input-group">
+                  <textarea class="form-control status-text" name="profile_content" rows="3" style=""></textarea>
+                  <span class="input-group-addon">
+                    <button type="submit" name="profile_post_button" class="btn btn-primary btn-text pull-right"><i class="glyphicon glyphicon-bullhorn"></i></button>
+>>>>>>> master
                   </span>   
+                </div> <!-- textarea -->
                 </form>
-              </div><!-- textarea -->
-
+            </div>  
+            </div>
 
               <?php
             }
@@ -140,8 +156,14 @@
       </div> <!-- End Row -->
     </div> <!-- container -->
 
+<<<<<<< HEAD
     <script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
     <script src="../../Brobook/js/bootstrap.js"></script>
     <script src="../../Brobook/js/brobook.js"></script>
+=======
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/brobook.js"></script>
+>>>>>>> master
   </body>
   </html>
