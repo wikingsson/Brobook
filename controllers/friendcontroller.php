@@ -21,7 +21,6 @@ Class Friendscontroller{
         $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted");
         $acceptFriendStm->bindParam(":accepted", $accepted);
         $acceptFriendStm->execute();
-
     }
 
     public function declineFriend(){

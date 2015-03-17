@@ -6,19 +6,69 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         if(isset($_POST["register_submit"])){
-            $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
-            $stm->bindParam(":firstname", $_POST["firstname"]);
-            $stm->bindParam(":lastname", $_POST["lastname"]);
-            $stm->bindParam(":email", $_POST["email"]);
-            $stm->bindParam(":password", $_POST["password"]);
-            $stm->execute();
-        }
 
+            $emailError = "";
+            $email = "";
+            $passwordError = "";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (empty($_POST["email"])) {
+                    $emailError = "Email is required";
+                    header("location: /Brobook");
+                    echo($emailError);
+                }
+                else if(empty($_POST["password"])){
+                    $passwordError = "Password is required";
+                    header("location: /Brobook");
+                }
+                else{
+                    $email = ($_POST["email"]);
+                    // function that checks if e-mail address is ok
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $emailError = "Invalid email format";
+                        echo($emailError);
+                    }
+                    else{
+                        $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
+                        $stm->bindParam(":firstname", $_POST["firstname"]);
+                        $stm->bindParam(":lastname", $_POST["lastname"]);
+                        $stm->bindParam(":email", $_POST["email"]);
+                        $stm->bindParam(":password", $_POST["password"]);
+                        $stm->execute();
+                    }
+                }
+            }
+        }
         // Need to Send user back to loginpage.
-        header("location: /Brobook");
+        $this->showForm();
     }
 
     // Validation needed
+
+    public function checkEmail(){
+
+        $emailErr ="";
+        $email = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            }
+            else {
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
+                }
+            }
+            function test_input($data) {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+        }
+    }
 
     public function showForm(){
         require_once "views/login.php";
@@ -46,6 +96,7 @@ Class Usercontroller{
             else{
 
                 //redirect to login page with error message.
+                $this->showForm();
                 echo "something went wrong!";
 
             }

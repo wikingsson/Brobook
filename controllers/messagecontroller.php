@@ -16,14 +16,27 @@ Class Messagecontroller{
         $addConversationUsersStm->execute();
 
         //Add ability to add more users.
-
-
     }
 
     public function addConversationUsers(){
 
         //Probably same SQL as above.
 
+    }
+
+    public function addMessage(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+
+        session_start();
+        if(isset($_POST["send_message_button"])){
+        $addMessageStm = $db->prepare("INSERT INTO messages(content, user_id, conversation_id) VALUES :message_content, :user_id, :conversation_id");
+        $addMessageStm->bindParam(":message_content", $_POST["message_content"]);
+        $addMessageStm->bindParam(":conversation_id", $_POST["conversation_id"]);
+        $addMessageStm->bindParam(":user_id", $_SESSION["userId"]);
+        $addMessageStm->execute();
+        }
+        require_once "views/start_message.php";
     }
 
     public function showConversation(){

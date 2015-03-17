@@ -13,7 +13,7 @@
   <div class="row">
 
 
-<form class="form-horizontal pull-right" action='user/loginUser' method="POST">
+<form class="form-horizontal pull-right" action='/Brobook/user/loginUser' method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Login</legend>
@@ -70,8 +70,9 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" required>
-        <p class="help-block">Please provide your E-mail</p>
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge"><span><?php echo($emailError);?></span>
+
+          <p class="help-block">Please provide your E-mail</p>
       </div>
     </div>
  
@@ -79,7 +80,7 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required>
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
         <p class="help-block">Password should be at least 4 characters</p>
       </div>
     </div>
