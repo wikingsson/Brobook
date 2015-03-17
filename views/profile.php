@@ -27,7 +27,7 @@
         <ul class="nav navbar-nav">
           <li><a href="../status/showStatus">Home</a></li>
           <li class="active"><a href="../user/showUser">Profile</a></li>
-
+          <li><a href="#">Freinds</a></li>
           <li><a href="../message/showConversation">Messages</a></li>
         </ul>
         <div class="col-xs-8 col-md-8 center-block">
@@ -78,15 +78,13 @@
             <img src="<?php echo($picture)?>" class="img-thumbnail"></div>
             <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
               <h2><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h2>
-              <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
-
 
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <!-- textarea -->
-                <form method="post" action="status/addStatus">
+                <form method="post" action="../status/addStatus">
                 <div class="input-group">
-                  <textarea class="form-control status-text" name="profile_content" rows="3" style=""></textarea>
+                  <textarea class="form-control status-text" name="content" rows="3" style=""></textarea>
                   <span class="input-group-addon">
                     <button type="submit" name="profile_post_button" class="btn btn-primary btn-text pull-right"><i class="glyphicon glyphicon-bullhorn"></i></button>
                   </span>   
