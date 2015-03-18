@@ -7,11 +7,16 @@ Class Friendcontroller{
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         $initial_status = 0;
-        $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES :friend1, :friend2, :status");
-        $addFriendStm->bindParam(":friend1", $_SESSION["current_user"]);
-        $addFriendStm->bindParam(":friend2", $_POST["user_id"]);
-        $addFriendStm->bindParam(":status", $initial_status);
-        $addFriendStm->execute();
+
+        session_start();
+        if(isset($_POST["add_friend"])){
+            $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES :friend1, :friend2, :status");
+            $addFriendStm->bindParam(":friend1", $_SESSION["current_user"]);
+            $addFriendStm->bindParam(":friend2", $_POST["user_id"]);
+            $addFriendStm->bindParam(":status", $initial_status);
+            $addFriendStm->execute();
+        }
+        header("location:../friend/showFriends");
     }
 
     public function acceptFriend(){

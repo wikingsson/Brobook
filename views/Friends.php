@@ -75,6 +75,7 @@
              <center>
               <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
               <h4><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></h4>
+              <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-circle"></span> Remove Friend</a>
               </center>
           </div>
             <?php
@@ -99,12 +100,15 @@
                 $picture = $userRow["profile_img"];
             }
             ?>
-          <div class="pull-left well">
-             <center>
-              <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
-              <h4><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h4>
-              </center>
-          </div>
+          <form method="post" action="../friend/addFriend">
+              <div class="pull-left well">
+                 <center>
+                  <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
+                  <h4><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h4>
+                  <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default"><span>Add Friend</span></button>
+                 </center>
+              </div>
+          </form>
             <?php
             }
             }
