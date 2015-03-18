@@ -5,53 +5,49 @@ jQuery(document).ready(function() {
         alert('jag är en idiot');
     });
 
-    /*
-    var frm = $('#conv_form');
-    frm.submit(function (ev) {
+    $(this).find('.conv_form').on('click', function(){
+
+        var message = {
+            c_id: $(this).find('.hidden_cid').val()
+        };
+
         $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function () {
-                alert('hora');
+            type: 'POST',
+            url: '../message/getMessage',
+            dataType: 'json',
+            data: message,
+            success: function(messages){
+
+                $('#tab').empty();
+                for(var i = 0; i < messages.length; i++){
+                    var m = messages[i];
+
+                    $('#tab').prepend('<div class="media">' +
+                                        '<div class="media-left">' +
+                                            '<img id="pro_pic" class="media-object" src="'+ m.profile_img +'" alt="...">' +
+                                        '</div>' +
+                                        '<div class="media-body">' +
+                                            '<h4 class="media-heading"></h4>'+
+                                            '<p id="message_content">' + m.content + '</p>' +
+                                            '<p>' + m.time +'</p>' +
+                                            '<p>' + m.firstname + " " + m.lastname + '</p>' +
+                                        '</div>' +
+                                     '</div>');
+                }
+
+                $('#tab').append('<div class="input- group text-box">' +
+                                    '<form method="post" action="../message/addMessage">' +
+                                        '<textarea name="message_content" class="form-control" rows="3" style="width:630px; height:78px;"></textarea>' +
+                                        '<input type="hidden" name="hidden_c_id" value="'+ m.conversation_id +'"/>' +
+                                        '<span class="group-addon pull-right">' +
+                                        '<button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>' +
+                                        '</span>' +
+                                    '</form>' +
+                                  '</div>');
+            },
+            error: function(){
+                alert('Something went wrong');
             }
         });
-
-        ev.preventDefault();
     });
-
-
-    $.post( "test.php", { name: "John", time: "2pm" })
-        .done(function( data ) {
-            alert( "Data Loaded: " + data );
-        });
-
-    */
-
-    // Attach a submit handler to the form
-    $( "#conv_form" ).submit(function( event ) {
-
-        // Stop form from submitting normally
-        event.preventDefault();
-
-        // Get some values from elements on the page:
-        var $form = $( this ),
-            term = $form.find( "input[name='c_id']" ).val(),
-            url = $form.attr( "action" );
-
-        // Send the data using post
-        var posting = $.post( url, { s: term } );
-
-        // Put the results in a div
-        posting.done(function( data ) {
-            alert(data);
-            //var content = $( data ).find( "#content" );
-            //$( "#result" ).empty().append( content );
-        });
-    });
-
-    function submitForm(){
-        alert('jag är galen');
-
-    }
 });
