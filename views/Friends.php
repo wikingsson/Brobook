@@ -105,7 +105,7 @@
                  <center>
                   <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
                   <h4><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h4>
-                  <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default"><span>Add Friend</span></button>
+                  <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default">Add Friend</button>
                  </center>
               </div>
           </form>
