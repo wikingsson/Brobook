@@ -45,31 +45,6 @@ Class Usercontroller{
 
     // Validation needed
 
-    public function checkEmail(){
-
-        $emailErr ="";
-        $email = "";
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (empty($_POST["email"])) {
-                $emailErr = "Email is required";
-            }
-            else {
-                $email = test_input($_POST["email"]);
-                // check if e-mail address is well-formed
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $emailErr = "Invalid email format";
-                }
-            }
-            function test_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
-        }
-    }
-
     public function showForm(){
         require_once "views/login.php";
     }
@@ -123,11 +98,25 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
-        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
-        $showUserStm->bindParam(":user_id", $_POST["userId"]);
-        //$showUserStm->execute();
+        $showOtherUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id");
+        $showOtherUserStm->bindParam(":user_id", $_POST["userId"]);
+        //$showOtherUserStm->execute();
 
-        //require_once "views/friendprofile.php";
+        require_once "views/other_user_profile.php";
+    }
+
+    public function showAllUsers(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+
+        session_start();
+        $showAllUsersStm = $db->prepare("SELECT * FROM users");
+        $showAllUsersStm->bindParam(":user_id", $_SESSION["userId"]);
+        //$showAllUsersStm->execute();
+
+        require_once "views/Friends.php";
+
+
     }
 
     public function updateUser(){

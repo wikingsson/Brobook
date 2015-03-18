@@ -1,6 +1,6 @@
 <?php
 
-Class Friendscontroller{
+Class Friendcontroller{
 
 
     public function addFriend(){
@@ -37,9 +37,17 @@ Class Friendscontroller{
     public function showFriends(){
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-        $showFriendsStm = $db->prepare("SELECT U.firstname, U.lastname FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two= :currentUser THEN F.friend_one= U.user_id END AND F.status= 1 ORDER BY U.lastname");
-        $showFriendsStm->bindParam(":currentUser", $currentUserId);
-        $showFriendsStm->execute();
+
+        session_start();
+        $showFriendsStm = $db->prepare("SELECT * FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two= :currentUser THEN F.friend_one= U.user_id END AND F.status= 1 ORDER BY U.lastname");
+        $showFriendsStm->bindParam(":currentUser", $_SESSION["userId"]);
+        //$showFriendsStm->execute();
+
+        $showAllUsersStm = $db->prepare("SELECT * FROM users u LEFT JOIN friends f ON f.friend_one = u.user_id OR f.friend_two = u.user_id WHERE f.friend_one IS NULL");
+
+
+        require_once "views/Friends.php";
+
 
     }
 

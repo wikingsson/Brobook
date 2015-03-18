@@ -20,14 +20,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand">BroBook</a>
+        <a href="../status/showStatus" class="navbar-brand">BroBook</a>
       </div>
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="../status/showStatus">Home</a></li>
           <li><a href="../user/showUser">Profile</a></li>
-          <li class="active"><a href="../message/showConversation">Messages</a></li>
+            <li><a href="../friend/showFriends">Friends</a></li>
+            <li class="active"><a href="../message/showConversation">Messages</a></li>
         </ul>
          <div class="col-xs-8 col-md-8 center-block search">
             <div class="input-group stylish-input-group">

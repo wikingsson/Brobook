@@ -26,6 +26,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../status/showStatus">Home</a></li>
                 <li><a href="../user/showUser">Profile</a></li>
+                <li><a href="../friend/showFriends">Friends</a></li>
                 <li><a href="../message/showConversation">Messages</a></li>
             </ul>
               <div class="col-xs-8 col-md-8 center-block search">
@@ -34,7 +35,7 @@
                           <span class="input-group-addon">
                               <button type="submit">
                                   <span class="glyphicon glyphicon-search"></span>
-                              </button>  
+                              </button>
                           </span>
                       </div>
               </div>
@@ -78,7 +79,7 @@
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
               <img src="<?php echo($picture) ?>" alt="meta image" class="meta_image" />
-              <a href="../user/showUser"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
+              <a href="../user/showOtherUser"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
             <p><?php echo($updateRow["content"])?></p>
