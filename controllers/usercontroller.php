@@ -6,17 +6,44 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         if(isset($_POST["register_submit"])){
-            $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
-            $stm->bindParam(":firstname", $_POST["firstname"]);
-            $stm->bindParam(":lastname", $_POST["lastname"]);
-            $stm->bindParam(":email", $_POST["email"]);
-            $stm->bindParam(":password", $_POST["password"]);
-            $stm->execute();
-        }
 
+            $emailError = "";
+            $email = "";
+            $passwordError = "";
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if (empty($_POST["email"])) {
+                    $emailError = "Email is required";
+                    header("location: /Brobook");
+                    echo($emailError);
+                }
+                else if(empty($_POST["password"])){
+                    $passwordError = "Password is required";
+                    header("location: /Brobook");
+                }
+                else{
+                    $email = ($_POST["email"]);
+                    // function that checks if e-mail address is ok
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $emailError = "Invalid email format";
+                        echo($emailError);
+                    }
+                    else{
+                        $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
+                        $stm->bindParam(":firstname", $_POST["firstname"]);
+                        $stm->bindParam(":lastname", $_POST["lastname"]);
+                        $stm->bindParam(":email", $_POST["email"]);
+                        $stm->bindParam(":password", $_POST["password"]);
+                        $stm->execute();
+                    }
+                }
+            }
+        }
         // Need to Send user back to loginpage.
-        header("location: /Brobook");
+        $this->showForm();
     }
+
+    // Validation needed
 
     public function showForm(){
         require_once "views/login.php";
@@ -44,12 +71,15 @@ Class Usercontroller{
             else{
 
                 //redirect to login page with error message.
+                $this->showForm();
                 echo "something went wrong!";
 
             }
         }
 
     }
+
+    // Validation of email and password needed
 
     public function showUser(){
 
@@ -61,6 +91,32 @@ Class Usercontroller{
         //$showUserStm->execute();
 
         require_once "views/profile.php";
+    }
+
+    public function showOtherUser(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+
+        session_start();
+        $showOtherUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id");
+        $showOtherUserStm->bindParam(":user_id", $_POST["userId"]);
+        //$showOtherUserStm->execute();
+
+        require_once "views/other_user_profile.php";
+    }
+
+    public function showAllUsers(){
+
+        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+
+        session_start();
+        $showAllUsersStm = $db->prepare("SELECT * FROM users");
+        $showAllUsersStm->bindParam(":user_id", $_SESSION["userId"]);
+        //$showAllUsersStm->execute();
+
+        require_once "views/Friends.php";
+
+
     }
 
     public function updateUser(){
@@ -83,6 +139,7 @@ Class Usercontroller{
 
 
     public function logoutUser(){
+        session_start();
         session_unset();
         session_destroy();
 
