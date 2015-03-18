@@ -20,17 +20,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" class="navbar-brand">BroBook</a>
+        <a href="../status/showStatus" class="navbar-brand">BroBook</a>
       </div>
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="../status/showStatus">Home</a></li>
           <li><a href="../user/showUser">Profile</a></li>
-          <li class="active"><a href="../message/showConversation">Messages</a></li>
+            <li><a href="../friend/showFriends">Friends</a></li>
+            <li class="active"><a href="../message/showConversation">Messages</a></li>
         </ul>
-         <div class="col-xs-8 col-md-8 center-block">
-          <div class="search"> 
+         <div class="col-xs-8 col-md-8 center-block search">
             <div class="input-group stylish-input-group">
               <input type="text" class="form-control"  placeholder="Search" >
               <span class="input-group-addon">
@@ -39,15 +39,14 @@
                 </button>  
               </span>
             </div>
-          </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="#"> Preferences</a></li>
-              <li><a href="#"> Contact Support</a></li>
+              <li><a href="#"> Edit Profile</a></li>
               <li class="#"></li>
-              <li><a href="logout.php"> Logout</a></li>
+              <li><a href="../user/logoutUser"> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -72,9 +71,35 @@
   <div class="panel-body">
     <div class="col-xs-6 col-md-4">
       <nav class="nav-sidebar">
-        <span class="">
-          <button type="submit" name="" id="create_conversation_button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
-       </span>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#start_message" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
+
+          <div class="modal fade" id="start_message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="exampleModalLabel">Create Conversation</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="control-label">User:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="control-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+>>>>>>> origin/Rillvar
         <ul class="nav tabs">
           <?php
           //if($showConversationListStm->execute()){
@@ -151,9 +176,9 @@
 </div> <!-- panel end -->
 </div> <!-- container -->
 
+<script src="../../Brobook/js/jquery.min.js" type="text/javascript"></script>
+<script src="../../Brobook/js/bootstrap.js"></script>
+<script src="../../Brobook/js/brobook.js"></script>
 
-<script src="../js/jquery.min.js" type="text/javascript"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/brobook.js"></script>
 </body> 
 </html>

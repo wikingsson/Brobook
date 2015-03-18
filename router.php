@@ -7,8 +7,6 @@
 
     $requestURI = explode("/", $_SERVER["REQUEST_URI"]);
 
-    //var_dump($requestURI);
-
 
     $controller = "usercontroller";
     $action = "showForm";

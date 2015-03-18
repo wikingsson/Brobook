@@ -63,10 +63,10 @@ Class Statuscontroller{
 
         //Send back to wall or profile
         if(isset($_POST["profile_delete_button"])){
-            header("location:user/showUser");
+            header("location:../user/showUser");
         }
         elseif(isset($_POST["wall_delete_button"])){
-            header("location:status/showStatus");
+            header("location:../status/showStatus");
         }
 
     }
