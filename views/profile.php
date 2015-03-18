@@ -27,7 +27,11 @@
         <ul class="nav navbar-nav">
           <li><a href="../status/showStatus">Home</a></li>
           <li class="active"><a href="../user/showUser">Profile</a></li>
+<<<<<<< HEAD
            <li><a href="../friend/showFriends">Friends</a></li>
+=======
+          <li><a href="#">Freinds</a></li>
+>>>>>>> master
           <li><a href="../message/showConversation">Messages</a></li>
         </ul>
         <div class="col-xs-8 col-md-8 center-block search">
@@ -74,7 +78,11 @@
             <img src="<?php echo($picture)?>" class="img-thumbnail"></div>
             <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
               <h2><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h2>
+<<<<<<< HEAD
               <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
+=======
+
+>>>>>>> master
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <!-- textarea -->
