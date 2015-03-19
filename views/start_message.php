@@ -25,21 +25,24 @@
                 <div class="modal-header">
                 </div>
                 <div class="modal-body">
-                  <form method="post" action="../message/searchUsers?go">
+                  <form method="post" action="../message/addConversation">
                     <div class="form-group">
                       <div class="btn-group"> <!-- dropdown -->
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                          Select user <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Sven svensson</a></li>
-                        </ul>
+                        <select  id="friend_select" name="select_friend" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <option value="">Select Friend</option>
+                            <?php while($friendRow = $showFriendsStm->fetch()){
+                                ?>
+                                <option id="<?php echo($friendRow["firstname"])?>" value="<?php echo($friendRow["user_id"]);?>"><?php echo($friendRow["firstname"] . " " . $friendRow["lastname"])?></option>
+                            <?php
+                            }?>
+                        </select>
+                          <input name="hidden_conv_name" id="hidden_firstname" type="hidden" value=""/>
                       </div> <!-- dropdown -->
                     </div>
-                    <div class="form-group">
-                      <label for="message-text" class="control-label">Message:</label>
-                      <input type="text" class="form-control" id="message-text">
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="control-label">Message:</label>
+                    <textarea name="first_message_content" class="form-control" id="message-text"></textarea>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -1,10 +1,6 @@
 jQuery(document).ready(function() {
 	$('.dropdown-toggle').dropdown()
 
-    $('#create_conversation_button').click(function(){
-        alert('jag är en idiot');
-    });
-
     $(this).find('.conv_form').on('click', function(){
 
         var message = {
@@ -50,5 +46,10 @@ jQuery(document).ready(function() {
             }
         });
     });
+
+    $('#friend_select').on('change', function(){
+        $('#hidden_firstname').val($('#friend_select').children("option:selected").text());
+    });
+
 });
 
