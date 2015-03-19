@@ -62,9 +62,9 @@
   <div id="modulis" class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-      <h3>Change Settings</h3>
         <form role="form" method="post" action="../user/updateUser">
           <div class="form-group">
+           <h3>Change Settings</h3>
             <input type="" name="first_name" class="form-control"  placeholder="First Name">
             <br>
             <input type="" name="last_name" class="form-control"  placeholder="Last Name">
@@ -73,10 +73,8 @@
       </div>
       </div>
       <div class="modal-footer">
-        <div class="btn-group btn-group-lg btn-group-justified">
-         <button name="save_settings" type="submit">Save</button>
-         <button type="submit">Cancel</button>
-        </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>       
+          <button type="submit" name="save_settings" class="btn btn-primary">Save</button>
       </div>
       </form>
     </div>
