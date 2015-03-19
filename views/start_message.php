@@ -17,15 +17,38 @@
   <div class="panel-body">
     <div class="col-xs-6 col-md-4">
       <nav class="nav-sidebar">
-        <div class="btn-group"> <!-- dropdown -->
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            Create Conversation <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Sven svensson</a></li>
-          </ul>
-        </div> <!-- dropdown -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#start_message" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
 
+          <div class="modal fade" id="start_message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <div class="btn-group"> <!-- dropdown -->
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          Select user <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Sven svensson</a></li>
+                        </ul>
+                      </div> <!-- dropdown -->
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="control-label">Message:</label>
+                      <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <ul class="nav tabs">
           <?php
           //if($showConversationListStm->execute()){

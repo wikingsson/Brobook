@@ -23,7 +23,7 @@
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="../status/showStatus">Home</a></li>
+          <li class="active"><a href="../status/showStatus">Home</a></li>
           <li><a href="../user/showUser">Profile</a></li>
             <li><a href="../friend/showFriends">Friends</a></li>
             <li><a href="../message/showConversation">Messages</a></li>
