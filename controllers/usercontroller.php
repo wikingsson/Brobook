@@ -100,7 +100,7 @@ Class Usercontroller{
         session_start();
         if(isset($_POST["see_user_button"])){
         $showOtherUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id");
-        $showOtherUserStm->bindParam(":user_id", $_POST["userId"]);
+        $showOtherUserStm->bindParam(":user_id", $_POST["other_user_id"]);
         //$showOtherUserStm->execute();
 
         require_once "views/other_user_profile.php";
@@ -131,7 +131,7 @@ Class Usercontroller{
                 $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
                 $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
                 $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
-                $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
+                $updateUserStm->bindParam(":user_id", $_SESSION["userId"]);
 
             if($updateUserStm->execute()){
                 header("location:../user/showUser");

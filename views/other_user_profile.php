@@ -24,8 +24,7 @@
               <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <p><?php echo($otherUserRow["content"])?></p>
-            </div>  
+            </div>
             </div>
 
               <?php
