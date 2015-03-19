@@ -59,15 +59,11 @@
 <div class="row">
   <div class="col-xs-12 col-md-6">
   <div class="panel panel-default">
-<<<<<<< HEAD
-           <div class="panel-heading"><h4 class="fheader">Friends</h4></div>
-=======
            <div class="panel-heading"><h4 class="fheader">Freind requests</h4></div>	
->>>>>>> master
         <div class="panel-body">
             <?php
-            if($showFriendsStm->execute()){
-            while($updateRow = $showFriendsStm->fetch()){
+            if($showFriendRequestStm->execute()){
+            while($updateRow = $showFriendRequestStm->fetch()){
             if($updateRow["profile_img"] == null){
                 $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
             }
@@ -79,10 +75,7 @@
              <center>
               <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
               <h4><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></h4>
-<<<<<<< HEAD
-              <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-remove-circle"></span> Remove Friend</a>
-=======
-              <button type="submit" name="" value="" class="btn btn-default"><span>Accept Friend</span></button>          
+              <button type="submit" name="accept_friend" value="" class="btn btn-default"><span>Accept Friend</span></button>
               </center>
           </div>
             <?php
@@ -111,8 +104,7 @@
              <center>
               <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
               <h4><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></h4>
-              <button type="submit" name="" value="" class="btn btn-default"><span>Remove Friend</span></button>
->>>>>>> master
+              <button type="submit" name="remove_friend" value="" class="btn btn-default"><span>Remove Friend</span></button>
               </center>
           </div>
             <?php
@@ -142,11 +134,7 @@
                  <center>
                   <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
                   <h4><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h4>
-<<<<<<< HEAD
                   <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default">Add Friend</button>
-=======
-                  <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default"><span>Add Friend</span></button>
->>>>>>> master
                  </center>
               </div>
           </form>

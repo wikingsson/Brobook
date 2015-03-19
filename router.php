@@ -26,7 +26,8 @@
         $obj->$action();
     }
     else{
-        echo "404" . $controller ." " . $action;
+        //echo "404" . $controller ." " . $action;
+        require_once "views/404.php";
     }
 
 

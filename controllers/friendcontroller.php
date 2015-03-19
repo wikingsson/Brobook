@@ -23,9 +23,13 @@ Class Friendcontroller{
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         $accepted = 1;
-        $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted");
-        $acceptFriendStm->bindParam(":accepted", $accepted);
-        $acceptFriendStm->execute();
+
+        session_start();
+        if(isset($_POST["accept_friend"])){
+            $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted");
+            $acceptFriendStm->bindParam(":accepted", $accepted);
+            $acceptFriendStm->execute();
+        }
     }
 
     public function declineFriend(){
@@ -50,6 +54,7 @@ Class Friendcontroller{
 
         $showAllUsersStm = $db->prepare("SELECT * FROM users u LEFT JOIN friends f ON f.friend_one = u.user_id OR f.friend_two = u.user_id WHERE f.friend_one IS NULL");
 
+        $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON friends.friend_one = user.user_id OR friends.friend_two = users.user_id WHERE friends.status = 0");
 
         require_once "views/Friends.php";
 
