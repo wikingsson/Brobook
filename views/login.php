@@ -70,7 +70,7 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge"><span><?php echo($emailError);?></span>
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge"><span><?php //echo($emailError);?></span>
 
           <p class="help-block">Please provide your E-mail</p>
       </div>

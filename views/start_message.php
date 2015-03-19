@@ -81,25 +81,25 @@
                   <h4 class="modal-title" id="exampleModalLabel">Create Conversation</h4>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form method="post" action="../message/searchUsers?go">
                     <div class="form-group">
                       <label for="recipient-name" class="control-label">User:</label>
                       <input type="text" class="form-control" id="recipient-name">
                     </div>
                     <div class="form-group">
                       <label for="message-text" class="control-label">Message:</label>
-                      <textarea class="form-control" id="message-text"></textarea>
+                      <input type="text" class="form-control" id="message-text">
                     </div>
-                  </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Send message</button>
+                  <button type="submit" name="add_conversation" class="btn btn-primary">Add Conversation</button>
                 </div>
+                  </form>
+
               </div>
             </div>
           </div>
->>>>>>> origin/Rillvar
         <ul class="nav tabs">
           <?php
           //if($showConversationListStm->execute()){
