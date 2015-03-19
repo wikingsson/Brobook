@@ -9,6 +9,8 @@ body {
 	*/
 }
 
+
+
 .center {
 	text-align: center;
 }
@@ -51,8 +53,6 @@ body {
 	border-radius: 0px;
 }
 
-
-
 .feed {
 	margin-top: 20px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -80,7 +80,7 @@ body {
 }
 
 .col-xs-12.col-md-10.feed_text > p {
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .feed_profile a {
@@ -159,7 +159,7 @@ body {
 
 .btn-text-wall {
 	border-radius: 0px;
-	padding: 26px;
+	padding: 29px;
 }
 
 .text-box {
@@ -243,6 +243,16 @@ textarea {
 	margin-top: 5px;
 }
 
+.form-f {
+	width: 154px;
+	min-height: 200px;
+}
+
+
+.panel-body > .well > center > form > a > img {
+	margin-top: 5px;
+}
+
 .panel {
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 	border: 0px;
@@ -258,7 +268,7 @@ textarea {
 	border-radius: 0px;
 }
 
-.btn-xs {
+.btn-default {
 	border-radius: 0px;
 	margin-bottom: 5px;
 }
