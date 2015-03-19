@@ -28,7 +28,8 @@
             <li><a href="../friend/showFriends">Friends</a></li>
             <li><a href="../message/showConversation">Messages</a></li>
         </ul>
-         <div class="col-xs-8 col-md-8 center-block">
+        <!--
+          <div class="col-xs-8 col-md-8 center-block">
           <div class="search"> 
             <div class="input-group stylish-input-group">
               <input type="text" class="form-control"  placeholder="Search" >
@@ -40,10 +41,12 @@
             </div>
           </div>
         </div>
+        -->
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#"> Preferences</a></li>
+             <li><a href="#" data-toggle="modal" data-target="#new-list">Settings</a>
+                </li>
               <li><a href="#"> Contact Support</a></li>
               <li class="#"></li>
               <li><a href="../user/logoutUser"> Logout</a></li>
@@ -53,3 +56,29 @@
       </div>
     </div>
   </nav>
+
+
+<div class="modal fade" id="new-list" tabindex="-1" role="dialog" aria-labelledby="new-list" aria-hidden="true">
+  <div id="modulis" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <h3>Change Settings</h3>
+        <form role="form" method="post" action="../user/updateUser">
+          <div class="form-group">
+            <input type="" name="first_name" class="form-control"  placeholder="First Name">
+            <br>
+            <input type="" name="last_name" class="form-control"  placeholder="Last Name">
+            <br>
+            <input type="" name="profile_img" class="form-control"  placeholder="Change Profile image">
+      </div>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group btn-group-lg btn-group-justified">
+         <button name="save_settings" type="submit">Save</button>
+         <button type="submit">Cancel</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

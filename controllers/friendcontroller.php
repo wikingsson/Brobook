@@ -10,11 +10,22 @@ Class Friendcontroller{
 
         session_start();
         if(isset($_POST["add_friend"])){
-            $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES :friend1, :friend2, :status");
-            $addFriendStm->bindParam(":friend1", $_SESSION["current_user"]);
-            $addFriendStm->bindParam(":friend2", $_POST["user_id"]);
-            $addFriendStm->bindParam(":status", $initial_status);
-            $addFriendStm->execute();
+
+            $checkFriendStm = $db->prepare("SELECT * FROM friends WHERE (friend_one = :currentUser AND friend_two = :userId) OR (friend_one = :userId AND friend_two = :currentUser )");
+            $checkFriendStm->bindParam(":currentUser", $_SESSION["userId"]);
+            $checkFriendStm->bindParam(":userId", $_POST["hidden_user_id"]);
+            $checkFriendStm->execute();
+
+            if($checkFriendStm->rowCount() == 0){
+                $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES (:friend1, :friend2, :status)");
+                $addFriendStm->bindParam(":friend1", $_SESSION["userId"]);
+                $addFriendStm->bindParam(":friend2", $_POST["hidden_user_id"]);
+                $addFriendStm->bindParam(":status", $initial_status);
+                $addFriendStm->execute();
+            }
+            else {
+                echo("Already friends");
+            }
         }
         header("location:../friend/showFriends");
     }
@@ -24,12 +35,13 @@ Class Friendcontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         $accepted = 1;
 
-        session_start();
         if(isset($_POST["accept_friend"])){
             $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted");
             $acceptFriendStm->bindParam(":accepted", $accepted);
             $acceptFriendStm->execute();
         }
+        header("location:../friend/showFriends");
+
     }
 
     public function declineFriend(){
@@ -54,8 +66,8 @@ Class Friendcontroller{
 
         $showAllUsersStm = $db->prepare("SELECT * FROM users u LEFT JOIN friends f ON f.friend_one = u.user_id OR f.friend_two = u.user_id WHERE f.friend_one IS NULL");
 
-        $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON friends.friend_one = user.user_id OR friends.friend_two = users.user_id WHERE friends.status = 0");
-
+        $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON (friends.friend_one = users.user_id) WHERE friends.friend_two = :currentUser AND friends.status = 0");
+        $showFriendRequestStm->bindParam(":currentUser", $_SESSION["userId"]);
         require_once "views/Friends.php";
 
 

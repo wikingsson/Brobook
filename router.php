@@ -5,7 +5,10 @@
     require_once "controllers/statuscontroller.php";
 
 
-    $requestURI = explode("/", $_SERVER["REQUEST_URI"]);
+    //$requestURI = explode("/", $_SERVER["REQUEST_URI"]);
+
+    $requestURI = explode("/", parse_url(rtrim(strtolower($_SERVER["REQUEST_URI"]), "/"), PHP_URL_PATH));
+
 
 
     $controller = "usercontroller";

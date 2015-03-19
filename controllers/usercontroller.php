@@ -97,11 +97,13 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
+        if(isset($_POST["see_user_button"])){
         $showOtherUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id");
-        $showOtherUserStm->bindParam(":user_id", $_POST["userId"]);
+        $showOtherUserStm->bindParam(":user_id", $_POST["other_user_id"]);
         //$showOtherUserStm->execute();
 
         require_once "views/other_user_profile.php";
+        }
     }
 
     public function showAllUsers(){
@@ -120,20 +122,24 @@ Class Usercontroller{
 
     public function updateUser(){
         //Change PP and other stuff
-        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
-        $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
-        $updateUserStm->bindParam(":firstname", $_POST["first_name"], PDO:: PARAM_STR);
-        $updateUserStm->bindParam(":lastname", $_POST["last_name"], PDO:: PARAM_STR);
-        $updateUserStm->bindParam(":p_img", $_POST["profile_img"], PDO:: PARAM_STR);
-        $updateUserStm->bindParam(":user_id", $_POST["user_id"], PDO:: PARAM_INT);
+            $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
-        if($updateUserStm->execute()){
-            header("location:user/showUser");
-        }
+            session_start();
+            if(isset($_POST["save_settings"])){
+                $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
+                $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
+                $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
+                $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
+                $updateUserStm->bindParam(":user_id", $_SESSION["userId"]);
+
+            if($updateUserStm->execute()){
+                header("location:../user/showUser");
+            }
 
         //Send back to profile if everything went ok.
         //require_once "views/updateuser.php";
+        }
     }
 
 

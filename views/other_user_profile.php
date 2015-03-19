@@ -24,8 +24,7 @@
               <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <p><?php echo($otherUserRow["content"])?></p>
-            </div>  
+            </div>
             </div>
 
               <?php
@@ -34,7 +33,6 @@
               while($profileRow = $showOtherUserStm->fetch()){
                 ?>
 
-                <form method="post" action="../status/deleteStatus">
                   <div class="col-xs-12 col-md-12 feed">
                     <div class="feed_body">
                       <div class="row">
@@ -50,12 +48,7 @@
                     <hr class="feed_hr" />
                     <div class="bottom">
                       <div class="row">
-                        <div class="bottom_left">
-                          <input type="hidden" name="hidden_status_id" value="<?php echo($profileRow["status_update_id"])?>"/>
-                          <button type="submit" name="profile_delete_button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-trash"></span>
-                          </button>
-                        </div>
+                        <div class="bottom_left"></div>
                         <div class="bottom_right">
                           <?php echo(substr($profileRow["created"],0,-3))?>
                         </div> 
