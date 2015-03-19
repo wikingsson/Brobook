@@ -6,11 +6,12 @@ Class Statuscontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
-
-        $addStatusStm = $db->prepare("INSERT INTO status_updates(content, user_id) VALUES (:content, :user_id)");
-        $addStatusStm->bindParam(":content", $_POST["content"]);
-        $addStatusStm->bindParam(":user_id", $_SESSION["userId"]);
-        $addStatusStm->execute();
+        if(!empty($_POST["content"])){
+            $addStatusStm = $db->prepare("INSERT INTO status_updates(content, user_id) VALUES (:content, :user_id)");
+            $addStatusStm->bindParam(":content", $_POST["content"]);
+            $addStatusStm->bindParam(":user_id", $_SESSION["userId"]);
+            $addStatusStm->execute();
+        }
 
         //Send back to where you came from profile or wall
         if(isset($_POST["profile_post_button"])){
@@ -44,7 +45,7 @@ Class Statuscontroller{
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         session_start();
-        $showStatusStm = $db->prepare("SELECT * FROM status_updates SU, users U, friends F WHERE CASE WHEN F.friend_one = :curr_user THEN F.friend_two = U.user_id WHEN F.friend_two = :curr_user THEN F.friend_one = U.user_id END AND (U.user_id = SU.user_id) AND (F.friend_one = :curr_user OR F.friend_two = :curr_user) AND F.status = 1");
+        $showStatusStm = $db->prepare("SELECT * FROM status_updates SU, users U, friends F WHERE CASE WHEN F.friend_one = :curr_user THEN F.friend_two = U.user_id WHEN F.friend_two = :curr_user THEN F.friend_one = U.user_id END AND (U.user_id = SU.user_id) AND (F.friend_one = :curr_user OR F.friend_two = :curr_user) AND F.status = 1 ORDER BY SU.status_update_id DESC");
 
         $showStatusStm->bindParam(":curr_user", $_SESSION["userId"]);
         $showStatusStm->execute();
