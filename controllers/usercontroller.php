@@ -98,11 +98,13 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
+        if(isset($_POST["see_user_button"])){
         $showOtherUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id");
         $showOtherUserStm->bindParam(":user_id", $_POST["userId"]);
         //$showOtherUserStm->execute();
 
         require_once "views/other_user_profile.php";
+        }
     }
 
     public function showAllUsers(){

@@ -32,7 +32,9 @@
           <div class="row">
             <div class="col-xs-4 col-md-2 feed_profile">
               <img src="<?php echo($picture) ?>" alt="meta image" class="meta_image" />
-              <a href="../user/showOtherUser"><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></a>
+              <form method="post" action="../user/showOtherUser">
+              <button class="otherUserButton" name="see_user_button"><span><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?><input type="hidden" <?php echo($updateRow["userId"])?>></span></button>
+              </form>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
             <p><?php echo($updateRow["content"])?></p>
