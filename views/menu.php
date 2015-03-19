@@ -43,7 +43,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#"> Preferences</a></li>
+             <li><a href="#" data-toggle="modal" data-target="#new-list">Settings</a>
+                </li>
               <li><a href="#"> Contact Support</a></li>
               <li class="#"></li>
               <li><a href="../user/logoutUser"> Logout</a></li>
@@ -53,3 +54,30 @@
       </div>
     </div>
   </nav>
+
+
+<div class="modal fade" id="new-list" tabindex="-1" role="dialog" aria-labelledby="new-list" aria-hidden="true">
+  <div id="modulis" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <h3>Change Settings</h3>
+        <form role="form">
+          <div class="form-group">
+            <input type="" class="form-control"  placeholder="First Name">
+            <br>
+            <input type="" class="form-control"  placeholder="Last Name">
+            <br>
+            <input type="" class="form-control"  placeholder="Change Profile image">
+ 
+      </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group btn-group-lg btn-group-justified">
+          <a href="#" class="btn btn-success" data-dismiss="modal">Save</a>
+          <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
