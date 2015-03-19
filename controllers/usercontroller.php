@@ -123,20 +123,23 @@ Class Usercontroller{
 
     public function updateUser(){
         //Change PP and other stuff
-        $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
+            $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
-        $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
-        $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
-        $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
-        $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
-        $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
+            session_start();
+            if(isset($_POST["save_settings"])){
+                $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
+                $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
+                $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
+                $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
+                $updateUserStm->bindParam(":user_id", $_POST["user_id"]);
 
-        if($updateUserStm->execute()){
-            header("location:user/showUser");
-        }
+            if($updateUserStm->execute()){
+                header("location:../user/showUser");
+            }
 
         //Send back to profile if everything went ok.
         //require_once "views/updateuser.php";
+        }
     }
 
 

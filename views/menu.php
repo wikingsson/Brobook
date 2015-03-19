@@ -63,23 +63,22 @@
     <div class="modal-content">
       <div class="modal-body">
       <h3>Change Settings</h3>
-        <form role="form">
+        <form role="form" method="post" action="../user/updateUser">
           <div class="form-group">
-            <input type="" class="form-control"  placeholder="First Name">
+            <input type="" name="first_name" class="form-control"  placeholder="First Name">
             <br>
-            <input type="" class="form-control"  placeholder="Last Name">
+            <input type="" name="last_name" class="form-control"  placeholder="Last Name">
             <br>
-            <input type="" class="form-control"  placeholder="Change Profile image">
- 
+            <input type="" name="profile_img" class="form-control"  placeholder="Change Profile image">
       </div>
-        </form>
       </div>
       <div class="modal-footer">
         <div class="btn-group btn-group-lg btn-group-justified">
-          <a href="#" class="btn btn-success" data-dismiss="modal">Save</a>
-          <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+         <button name="save_settings" type="submit">Save</button>
+         <button type="submit">Cancel</button>
         </div>
       </div>
+      </form>
     </div>
   </div>
 </div>
