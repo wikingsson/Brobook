@@ -1,7 +1,7 @@
 <?php include 'menu.php';?>
 
 
-  <div class="container-fluid profile-header">
+
     <div class="container">
         <?php
 
@@ -21,6 +21,7 @@
             <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
               <h2><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h2>
               <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
+
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <!-- textarea -->
@@ -36,9 +37,10 @@
             </div>
 
               <?php
+
             }
-            if($showUserStm->execute()){
-              while($profileRow = $showUserStm->fetch()){
+            if($showUserStm2->execute()){
+              while($profileRow = $showUserStm2->fetch()){
                 ?>
 
                 <form method="post" action="../status/deleteStatus">

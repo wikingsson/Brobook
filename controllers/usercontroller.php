@@ -6,7 +6,6 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         if(isset($_POST["register_submit"])){
-
             $emailError = "";
             $email = "";
             $passwordError = "";
@@ -87,8 +86,11 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
-        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
+        $showUserStm = $db->prepare("SELECT * FROM users where user_id = :user_id");
         $showUserStm->bindParam(":user_id", $_SESSION["userId"]);
+
+        $showUserStm2 = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
+        $showUserStm2->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_INT);
         //$showUserStm->execute();
 
         require_once "views/profile.php";
@@ -124,6 +126,7 @@ Class Usercontroller{
 
     public function updateUser(){
         //Change PP and other stuff
+
             $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
             session_start();
@@ -156,7 +159,7 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         $userDeleteStm = $db->prepare("DELETE FROM users WHERE user_id = :user_id");
-        $userDeleteStm->bindParam("user_id", $_POST["user_id"]);
+        $userDeleteStm->bindParam("user_id", $_POST["user_id"], PDO:: PARAM_INT);
         $userDeleteStm->execute();
 
         $this->logoutUser();
