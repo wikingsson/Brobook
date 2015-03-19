@@ -16,11 +16,16 @@ Class Friendcontroller{
             $checkFriendStm->execute();
 
             if($checkFriendStm->rowCount() == 0){
-                $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES (:friend1, :friend2, :status)");
-                $addFriendStm->bindParam(":friend1", $_SESSION["userId"]);
-                $addFriendStm->bindParam(":friend2", $_POST["hidden_user_id"]);
-                $addFriendStm->bindParam(":status", $initial_status);
-                $addFriendStm->execute();
+                if($_POST["hidden_user_id"] != $_SESSION["userId"]){
+                    $addFriendStm = $db->prepare("INSERT INTO friends(friend_one, friend_two, status) VALUES (:friend1, :friend2, :status)");
+                    $addFriendStm->bindParam(":friend1", $_SESSION["userId"]);
+                    $addFriendStm->bindParam(":friend2", $_POST["hidden_user_id"]);
+                    $addFriendStm->bindParam(":status", $initial_status);
+                    $addFriendStm->execute();
+                }
+                else{
+                    echo("You can't be friends with yourself bro!");
+                }
             }
             else {
                 echo("Already friends");
@@ -65,7 +70,8 @@ Class Friendcontroller{
         $showFriendsStm->bindParam(":currentUser", $_SESSION["userId"]);
         //$showFriendsStm->execute();
 
-        $showAllUsersStm = $db->prepare("SELECT * FROM users");
+        $showAllUsersStm = $db->prepare("SELECT * FROM users WHERE user_id != :currentUser");
+        $showAllUsersStm->bindParam(":currentUser", $_SESSION["userId"]);
 
         $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON (friends.friend_one = users.user_id) WHERE friends.friend_two = :currentUser AND friends.status = 0");
         $showFriendRequestStm->bindParam(":currentUser", $_SESSION["userId"]);
