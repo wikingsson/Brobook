@@ -37,9 +37,10 @@
             </div>
 
               <?php
+
             }
-            if($showUserStm->execute()){
-              while($profileRow = $showUserStm->fetch()){
+            if($showUserStm2->execute()){
+              while($profileRow = $showUserStm2->fetch()){
                 ?>
 
                 <form method="post" action="../status/deleteStatus">

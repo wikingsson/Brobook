@@ -85,8 +85,11 @@ Class Usercontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
 
         session_start();
-        $showUserStm = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
-        $showUserStm->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_INT);
+        $showUserStm = $db->prepare("SELECT * FROM users where user_id = :user_id");
+        $showUserStm->bindParam(":user_id", $_SESSION["userId"]);
+
+        $showUserStm2 = $db->prepare("SELECT * FROM users JOIN status_updates ON (status_updates.user_id = users.user_id) WHERE users.user_id = :user_id ORDER BY status_updates.status_update_id DESC");
+        $showUserStm2->bindParam(":user_id", $_SESSION["userId"], PDO:: PARAM_INT);
         //$showUserStm->execute();
 
         require_once "views/profile.php";
