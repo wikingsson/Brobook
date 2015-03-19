@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
     });
 
     $('#friend_select').on('change', function(){
-        $('#hidden_firstname').val($('#friend_select').children("option:selected").text());
+        $('#hidden_firstname').val($('#friend_select').children("option:selected").text() + ", " + $('#hidden_firstname').val());
     });
 
 });

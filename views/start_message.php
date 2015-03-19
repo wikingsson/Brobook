@@ -36,7 +36,7 @@
                             <?php
                             }?>
                         </select>
-                          <input name="hidden_conv_name" id="hidden_firstname" type="hidden" value=""/>
+                          <input name="hidden_conv_name" id="hidden_firstname" type="hidden" value="<?php echo($_SESSION["user"])?>"/>
                       </div> <!-- dropdown -->
                       </div>
                       </div>
