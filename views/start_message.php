@@ -15,7 +15,7 @@
 
   </div>
   <div class="panel-body">
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-12 col-md-4">
       <nav class="nav-sidebar">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#start_message" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-plus"></i> Create Conversation</button>
 
