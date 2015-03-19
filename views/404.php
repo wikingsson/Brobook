@@ -1,10 +1,3 @@
-<?php
-
-session_start();
-
-$db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +24,10 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="wall.php">Home</a></li>
-          <li><a href="profile.php">Profile</a></li>
-          <li class="active"><a href="start_message.php">Messages</a></li>
+            <li><a href="../status/showStatus">Home</a></li>
+            <li><a href="../user/showUser">Profile</a></li>
+            <li><a href="../friend/showFriends">Friends</a></li>
+            <li><a href="../message/showConversation">Messages</a></li>
         </ul>
          <div class="col-xs-8 col-md-8 center-block">
           <div class="search"> 
@@ -47,8 +41,8 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             </div>
           </div>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
+        <ul class="nav navbar-nav navbar-right"><!--
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>-->
             <ul class="dropdown-menu">
               <li><a href="#"> Preferences</a></li>
               <li><a href="#"> Contact Support</a></li>
@@ -63,6 +57,13 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 
 <div class="container">
+<div class="row">
+  <div class="404 center">
+    <h2>OOOPPPSss....404</h2>
+    <h1>Page not found</h1>
+    <img src="http://i.imgur.com/HChIIDs.jpg">
+  </div>
+</div> 
 </div> <!-- container -->
 
 
