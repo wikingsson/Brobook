@@ -47,6 +47,7 @@ Class Statuscontroller{
         session_start();
 
         $showStatusStm = $db->prepare("SELECT * FROM status_updates SU, users U, friends F WHERE CASE WHEN F.friend_one = :curr_user THEN F.friend_two = U.user_id WHEN F.friend_two = :curr_user THEN F.friend_one = U.user_id END AND (U.user_id = SU.user_id) AND (F.friend_one = :curr_user OR F.friend_two = :curr_user) AND F.status = 1 ORDER BY SU.status_update_id DESC");
+
         $showStatusStm->bindParam(":curr_user", $_SESSION["userId"]);
         $showStatusStm->execute();
 
