@@ -22,7 +22,7 @@
           <div class="modal fade" id="start_message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"><h3>Create conversation</h3>
                 </div>
                 <div class="modal-body">
                   <form method="post" action="../message/addConversation">
@@ -38,18 +38,17 @@
                         </select>
                           <input name="hidden_conv_name" id="hidden_firstname" type="hidden" value=""/>
                       </div> <!-- dropdown -->
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message-text" class="control-label">Message:</label>
-                    <textarea name="first_message_content" class="form-control" id="message-text"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="submit" name="add_conversation" class="btn btn-primary">Add Conversation</button>
-                </div>
-                  </form>
-
+                      </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="message-text" class="control-label">Message:</label>
+                          <textarea name="first_message_content" class="form-control status-text" id="message-text"></textarea>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" name="add_conversation" class="btn btn-primary">Add Conversation</button>
+                      </div>
+                  </form>                   
               </div>
             </div>
           </div>

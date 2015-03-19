@@ -31,14 +31,18 @@ jQuery(document).ready(function() {
                                      '</div>');
                 }
 
-                $('#tab').append('<div class="input- group text-box">' +
+                $('#tab').append(' <div class="row">' +
+                                  '<div class="col-md-12 col-sm-12 col-xs-12">' +
                                     '<form method="post" action="../message/addMessage">' +
-                                        '<textarea name="message_content" class="form-control" rows="3" style="width:630px; height:78px;"></textarea>' +
+                                    '<div class="input-group">' +
+                                        '<textarea name="message_content" class="form-control status-text" rows="3"></textarea>' +
                                         '<input type="hidden" name="hidden_c_id" value="'+ m.conversation_id +'"/>' +
-                                        '<span class="group-addon pull-right">' +
-                                        '<button type="submit" name="send_message_button" class="btn btn-primary btn-text"><i class="glyphicon glyphicon-bullhorn"></i></button>' +
+                                        '<span class="input-group-addon">' +
+                                        '<button type="submit" name="send_message_button" class="btn btn-primary btn-text pull-right"><i class="glyphicon glyphicon-bullhorn"></i></button>' +
                                         '</span>' +
                                     '</form>' +
+                                  '</div>' +
+                                  '</div>' +
                                   '</div>');
             },
             error: function(){

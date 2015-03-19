@@ -268,6 +268,49 @@ textarea {
 	padding-bottom: 10px;
 }
 
+.conv_form > li > a {
+	border: 0 solid #efefef;
+	border-bottom-width: 1px;
+	text-decoration: none;
+	color: #000;
+	display: block;
+	padding: 10px 15px;
+}
+
+.con_form > li > a:first-letter {
+	text-transform: uppercase;
+}
+
+.conv_form > li > a:hover {
+	color: #337ab7;
+	background-color: #eee;
+}
+
+.message-text {
+	padding:  5px;
+}
+
+.form-group {
+	padding: 10px;
+}
+
+.modal-body {
+	padding: 0px;
+}
+
+.modal-content {
+	border-radius: 0px;
+}
+
+.btn {
+	border-radius: 0px;
+}
+
+.media-body > p:nth-child(4) {
+	padding-bottom: 15px;
+	border: 0 solid #efefef;
+	border-bottom-width: 1px;
+}
 
 @media all and (max-width: 800px) {
 	.feed_profile > img {
