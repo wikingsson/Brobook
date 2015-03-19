@@ -23,10 +23,10 @@ jQuery(document).ready(function() {
                                             '<img id="pro_pic" class="media-object" src="'+ m.profile_img +'" alt="...">' +
                                         '</div>' +
                                         '<div class="media-body">' +
-                                            '<h4 class="media-heading"></h4>'+
-                                            '<p id="message_content">' + m.content + '</p>' +
-                                            '<p>' + m.time +'</p>' +
+                                            '<h4 class="media-heading"></h4>'+           
                                             '<p>' + m.firstname + " " + m.lastname + '</p>' +
+                                            '<span>' + m.time +'</span>' +
+                                            '<p id="message_content">' + m.content + '</p>' +
                                         '</div>' +
                                      '</div>');
                 }
