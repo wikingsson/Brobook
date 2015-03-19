@@ -10,7 +10,6 @@ Class Friendcontroller{
 
         session_start();
         if(isset($_POST["add_friend"])){
-
             $checkFriendStm = $db->prepare("SELECT * FROM friends WHERE (friend_one = :currentUser AND friend_two = :userId) OR (friend_one = :userId AND friend_two = :currentUser )");
             $checkFriendStm->bindParam(":currentUser", $_SESSION["userId"]);
             $checkFriendStm->bindParam(":userId", $_POST["hidden_user_id"]);
@@ -34,10 +33,12 @@ Class Friendcontroller{
 
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         $accepted = 1;
-
+        session_start();
         if(isset($_POST["accept_friend"])){
-            $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted");
+            $acceptFriendStm = $db->prepare("UPDATE friends SET status = :accepted WHERE friend_one = :user_id AND friend_two = :currentUser");
             $acceptFriendStm->bindParam(":accepted", $accepted);
+            $acceptFriendStm->bindParam(":user_id", $_POST["hid_user_id"]);
+            $acceptFriendStm->bindParam(":currentUser", $_SESSION["userId"]);
             $acceptFriendStm->execute();
         }
         header("location:../friend/showFriends");
@@ -64,7 +65,7 @@ Class Friendcontroller{
         $showFriendsStm->bindParam(":currentUser", $_SESSION["userId"]);
         //$showFriendsStm->execute();
 
-        $showAllUsersStm = $db->prepare("SELECT * FROM users u LEFT JOIN friends f ON f.friend_one = u.user_id OR f.friend_two = u.user_id WHERE f.friend_one IS NULL");
+        $showAllUsersStm = $db->prepare("SELECT * FROM users");
 
         $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON (friends.friend_one = users.user_id) WHERE friends.friend_two = :currentUser AND friends.status = 0");
         $showFriendRequestStm->bindParam(":currentUser", $_SESSION["userId"]);

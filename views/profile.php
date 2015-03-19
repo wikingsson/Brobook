@@ -3,20 +3,18 @@
 
   <div class="container-fluid profile-header">
     <div class="container">
+        <?php
 
-      <?php
 
-
-      if($showUserStm->execute()){
-        $userRow = $showUserStm->fetch();
-        if($userRow["profile_img"] == null){
-          $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
-        }
-        else{
-          $picture = $userRow["profile_img"];
-        }
-        ?>
-
+        if($showUserStm->execute()){
+            $userRow = $showUserStm->fetch();
+            if($userRow["profile_img"] == null){
+                $picture = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
+            }
+            else{
+                $picture = $userRow["profile_img"];
+            }
+            ?>
         <div class="row profile-header-content">
           <div class="col-md-3 col-sm-3 col-xs-4 profile-pic">
             <img src="<?php echo($picture)?>" class="img-thumbnail"></div>

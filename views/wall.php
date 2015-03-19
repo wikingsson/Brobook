@@ -34,7 +34,7 @@
               <img src="<?php echo($picture) ?>" alt="meta image" class="meta_image" />
               <form method="post" action="../user/showOtherUser">
               <input type="hidden" name="other_user_id" value="<?php echo($updateRow["user_id"])?>"/>
-              <button class="otherUserButton" name="see_user_button"><span><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?><input type="hidden" <?php echo($updateRow["userId"])?>></span></button>
+              <button class="otherUserButton" name="see_user_button"><span><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></span></button>
               </form>
             </div>
             <div class="col-xs-12 col-md-10 feed_text">
