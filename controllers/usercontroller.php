@@ -26,6 +26,7 @@ Class Usercontroller{
                     // function that checks if e-mail address is ok
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                         $emailError = "Invalid email format";
+                        header("location: /Brobook");
                         echo($emailError);
                     }
                     else{
