@@ -41,16 +41,8 @@
               </span>
             </div>
           </div>
->>>>>>> a530cb8db7fdb5306c5c933ec129cffb34af0473
         </div>
         <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="../status/showStatus">Home</a></li>
-                <li><a href="../user/showUser">Profile</a></li>
-                <li><a href="../friend/showFriends">Friends</a></li>
-                <li><a href="../message/showConversation">Messages</a></li>
-            </ul>
             <!--
               <div class="col-xs-8 col-md-8 center-block">
               <div class="search">
