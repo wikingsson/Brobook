@@ -29,11 +29,13 @@ Class Usercontroller{
                         echo($emailError);
                     }
                     else{
-                        $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (:firstname, :lastname, :email, :password)");
+                        $pro_img = "http://www.giacomazzi.org/ArchivioImmagini/2014/ANONYMOUS_Mask_of_Guy_Fawkes.jpg";
+                        $stm = $db->prepare("INSERT INTO users (firstname, lastname, email, password, profile_img) VALUES (:firstname, :lastname, :email, :password, :profile_img)");
                         $stm->bindParam(":firstname", $_POST["firstname"]);
                         $stm->bindParam(":lastname", $_POST["lastname"]);
                         $stm->bindParam(":email", $_POST["email"]);
                         $stm->bindParam(":password", $_POST["password"]);
+                        $stm->bindParam(":profile_img", $pro_img);
                         $stm->execute();
                     }
                 }
