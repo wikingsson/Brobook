@@ -47,6 +47,14 @@ body {
 .navbar-default .navbar-nav > .active > a {
 	background-color: #f2f2f2;
 }
+#navbarCollapse > ul > li > a:hover {
+	background-color: #f2f2f2;
+	color: #000;
+}
+.navbar-default .navbar-nav > a:hover {
+	background-color: #f2f2f2;
+}
+
 
 .img-thumbnail {
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
