@@ -6,7 +6,7 @@
 <!-- col -->
     <div class="col-xs-12  col-md-6">
   <div class="panel panel-default">
-           <div class="panel-heading"><h4 class="fheader">People you may know</h4></div>
+           <div class="panel-heading"><h4 class="fheader">All Users On BroBook</h4></div>
         <div class="panel-body">
             <?php
             if($showAllUsersStm->execute()){
@@ -26,7 +26,9 @@
                   <h4><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h4>
                   <button type="submit" name="add_friend" value="Add Friend" class="btn btn-default">Add Friend</button>
                  </form>
+
                  </center>
+
               </div>
             <?php
                 }
