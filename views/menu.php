@@ -69,6 +69,8 @@
                         <br>
                         <input type="" name="last_name" class="form-control"  placeholder="Last Name">
                         <br>
+                        <input type="" name="country" class="form-control"  placeholder="Country">
+                        <br>
                         <input type="" name="profile_img" class="form-control"  placeholder="Change Profile image">
                     </div>
             </div>

@@ -133,13 +133,14 @@ Class Usercontroller{
 
             session_start();
             if(isset($_POST["save_settings"])){
-                $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img WHERE user_id = :user_id");
+                $updateUserStm = $db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, profile_img = :p_img,  country = :country WHERE user_id = :user_id");
                 $updateUserStm->bindParam(":firstname", $_POST["first_name"]);
                 $updateUserStm->bindParam(":lastname", $_POST["last_name"]);
                 $updateUserStm->bindParam(":p_img", $_POST["profile_img"]);
+                $updateUserStm->bindParam(":country", $_POST["country"]);
                 $updateUserStm->bindParam(":user_id", $_SESSION["userId"]);
 
-            if($updateUserStm->execute()){
+                if($updateUserStm->execute()){
                 header("location:../user/showUser");
             }
 

@@ -83,12 +83,15 @@ Class Messagecontroller{
         $db = new PDO("mysql:host=localhost;dbname=BroBook;charset=utf8", "root", "root");
         session_start();
         $num = 1;
-        $addMessageStm = $db->prepare("INSERT INTO messages(content, conversation_id, user_id, messages.status) VALUES (:content, :c_id, :user_id, :status)");
-        $addMessageStm->bindParam(":content", $_POST["message_content"]);
-        $addMessageStm->bindParam(":c_id", $_POST["hidden_c_id"]);
-        $addMessageStm->bindParam(":user_id", $_SESSION["userId"]);
-        $addMessageStm->bindParam(":status", $num);
-        $addMessageStm->execute();
+        if(!empty($_POST["message_content"])){
+            $addMessageStm = $db->prepare("INSERT INTO messages(content, conversation_id, user_id, messages.status) VALUES (:content, :c_id, :user_id, :status)");
+            $addMessageStm->bindParam(":content", $_POST["message_content"]);
+            $addMessageStm->bindParam(":c_id", $_POST["hidden_c_id"]);
+            $addMessageStm->bindParam(":user_id", $_SESSION["userId"]);
+            $addMessageStm->bindParam(":status", $num);
+            $addMessageStm->execute();
+        }
+
         header("location:../message/showConversation");
     }
 
