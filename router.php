@@ -4,11 +4,7 @@
     require_once "controllers/friendcontroller.php";
     require_once "controllers/statuscontroller.php";
 
-
     $requestURI = explode("/", $_SERVER["REQUEST_URI"]);
-
-
-
 
     $controller = "usercontroller";
     $action = "showForm";
