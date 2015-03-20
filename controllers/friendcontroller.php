@@ -70,7 +70,7 @@ Class Friendcontroller{
         $showFriendsStm->bindParam(":currentUser", $_SESSION["userId"]);
         //$showFriendsStm->execute();
 
-        $showAllUsersStm = $db->prepare("SELECT * FROM users WHERE user_id NOT IN (SELECT U.user_id FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two = :currentUser THEN F.friend_one = U.user_id END AND F.status= 1) AND users.user_id != :currentUser");
+        $showAllUsersStm = $db->prepare("SELECT * FROM users WHERE user_id NOT IN (SELECT U.user_id FROM users AS U, friends AS F WHERE CASE WHEN F.friend_one = :currentUser THEN F.friend_two = U.user_id WHEN F.friend_two = :currentUser THEN F.friend_one = U.user_id END) AND users.user_id != :currentUser");
         $showAllUsersStm->bindParam(":currentUser", $_SESSION["userId"]);
 
         $showFriendRequestStm = $db->prepare("SELECT * FROM users JOIN friends ON (friends.friend_one = users.user_id) WHERE friends.friend_two = :currentUser AND friends.status = 0");
