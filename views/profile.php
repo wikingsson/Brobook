@@ -20,7 +20,7 @@
             <img src="<?php echo($picture)?>" class="img-thumbnail"></div>
             <div class="col-md-9 col-sm-9 col-xs-8 profile-about">
               <h2><?php echo($userRow["firstname"] . " " . $userRow["lastname"])?></h2>
-              <p><i class="glyphicon glyphicon-globe"></i>Sweden</p>
+              <p><i class="glyphicon glyphicon-globe"></i> <?php echo($userRow["country"])?> </p>
 
             <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">

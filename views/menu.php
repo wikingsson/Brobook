@@ -42,20 +42,6 @@
             </div>
           </div>
         </div>
-        <!-- Collection of nav links and other content for toggling -->
-            <!--
-              <div class="col-xs-8 col-md-8 center-block">
-              <div class="search">
-                <div class="input-group stylish-input-group">
-                  <input type="text" class="form-control"  placeholder="Search" >
-                  <span class="input-group-addon">
-                    <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-                </div>
-              </div>
-            </div>
             -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <?php $user = $_SESSION["user"]; echo($user);?><b class="caret"></b></a>
@@ -83,6 +69,8 @@
                         <input type="" name="first_name" class="form-control"  placeholder="First Name">
                         <br>
                         <input type="" name="last_name" class="form-control"  placeholder="Last Name">
+                        <br>
+                         <input type="" name="country" class="form-control"  placeholder="Country">
                         <br>
                         <input type="" name="profile_img" class="form-control"  placeholder="Change Profile image">
                     </div>
