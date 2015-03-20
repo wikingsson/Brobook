@@ -61,6 +61,7 @@ body {
     border-radius: 0px;
 }
 
+
 .feed {
     margin-top: 20px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -89,6 +90,7 @@ body {
 
 .col-xs-12.col-md-10.feed_text > p {
     font-size: 14px;
+
 }
 
 .feed_profile a {
@@ -261,6 +263,16 @@ textarea {
     margin-top: 5px;
 }
 
+.form-f {
+	width: 154px;
+	min-height: 200px;
+}
+
+
+.panel-body > .well > center > form > a > img {
+	margin-top: 5px;
+}
+
 .panel {
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     border: 0px;
@@ -278,6 +290,7 @@ textarea {
 
 .btn-default {
     border-radius: 0px;
+
 }
 .fheader {
     border: 0 solid #efefef;
@@ -336,11 +349,14 @@ textarea {
 }
 
 .form-control {
-    border-radius: 0px;
+
+	border-radius: 0px;
 }
 
-.btn-f {
-    margin-bottom: 12px;
+@media all and (max-width: 800px) {
+	.feed_profile > img {
+		display: none;
+	}
 }
 
 @media all and (max-width: 800px) {
