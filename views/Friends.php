@@ -55,7 +55,7 @@
                             <center>
                                 <a href=""><img src="<?php echo($picture)?>" name="" width="140" height="140" class="img-circle"></a>
                                 <h4><?php echo($updateRow["firstname"] . " " . $updateRow["lastname"])?></h4>
-                                <button type="submit" name="remove_friend" value="" class="btn btn-default"><span>Remove Friend</span></button>
+                                <button type="submit" name="remove_friend" value="" class="btn btn-default btn-f"><span>Remove Friend</span></button>
                             </center>
                         </div>
                     <?php

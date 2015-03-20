@@ -1,151 +1,159 @@
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 body {
-	padding-top: 80px;
-	background-color: #f2f2f2;
-	font-family: 'Ruda', sans-serif;
-	font-size:13px;
-	/*
-	background: url("../img/billie_holiday.png") repeat;
-	*/
+    padding-top: 80px;
+    background-color: #f2f2f2;
+    font-family: 'Ruda', sans-serif;
+    font-size:13px;
+    /*
+    background: url("../img/billie_holiday.png") repeat;
+    */
 }
 
+
+
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .navbar-header {
-	padding-top: 5px;
+    padding-top: 5px;
 }
 
 .navbar-nav > li > a {
-	padding-top: 20px;
+    padding-top: 20px;
 }
 
 .navbar-default .navbar-nav > li > a {
-	min-height: 60px;
+    min-height: 60px;
 }
 
 .navbar-default {
-	background-color: #424a5d;
+    background-color: #424a5d;
 
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #aeb2b7;
+    color: #aeb2b7;
 }
 
 .navbar-default .navbar-brand {
-	color: #fff;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-	color: #fff;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > .active > a {
-	background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
+#navbarCollapse > ul > li > a:hover {
+    background-color: #f2f2f2;
+    color: #000;
+}
+.navbar-default .navbar-nav > a:hover {
+    background-color: #f2f2f2;
+}
+
 
 .img-thumbnail {
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-	border-radius: 0px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
 }
-
-
 
 .feed {
-	margin-top: 20px;
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-	background-color:#fff;
+    margin-top: 20px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    background-color:#fff;
 }
 .meta_image {
-	width: 120px;
-	height: 120px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-	border-radius: 150px;
-	border:4px solid #efefef;
+    width: 120px;
+    height: 120px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    border-radius: 150px;
+    border:4px solid #efefef;
 }
 .feed_body {
-	padding:20px;
-/*	border-bottom:1px solid #efefef;*/
-	margin-bottom:0;
+    padding:20px;
+    /*	border-bottom:1px solid #efefef;*/
+    margin-bottom:0;
 }
 .feed_profile {
-	padding-right: 0px;
-	padding-left: 0px;
-	font-size: 12px;
-	float:left;
-	text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    font-size: 12px;
+    float:left;
+    text-align: center;
 }
 
 .col-xs-12.col-md-10.feed_text > p {
-	font-size: 12px;
+    font-size: 14px;
 }
 
 .feed_profile a {
-	color: #000;
+    color: #000;
 }
 
 .feed_profile img {
-	float: none;
+    float: none;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 .feed_text {
-	float:right;
-	font-size:18px;
-	color:#666;
+    float:right;
+    font-size:18px;
+    color:#666;
 }
 .feed_bottom {
-	margin-top:-10px;
-	padding-left:20px;
-	padding-bottom:20px;
+    margin-top:-10px;
+    padding-left:20px;
+    padding-bottom:20px;
 }
 
 .bottom_left {
-	float:left;
-	margin-left:20px;
+    float:left;
+    margin-left:20px;
 }
 .bottom_right {
-	float:right;
-	margin-right:20px;
-	color:#999;
-	font-size:12px;
+    float:right;
+    margin-right:20px;
+    color:#999;
+    font-size:12px;
 }
 
 .bottom_right a {
-	font-weight:bold;
+    font-weight:bold;
 }
 
 .feed_hr {
-	margin-top:0;
-	margin-bottom:20px;
-	padding-top:0;
+    margin-top:0;
+    margin-bottom:20px;
+    padding-top:0;
 }
 .feed_textarea {
-	padding-right: 0;
-	padding-left: 0;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .media-object {
-	width: 64px;
-	height: 64px;
+    width: 64px;
+    height: 64px;
 }
 .search {
-	width: 45%;
-	margin-left: 30px;
-	padding-top: 13px;
+    width: 45%;
+    margin-left: 30px;
+    padding-top: 13px;
 }
 
 .stylish-input-group .input-group-addon{
-    background: white !important; 
+    background: white !important;
 }
 .stylish-input-group .form-control{
-	border-right:0; 
-	box-shadow:0 0 0; 
-	border-color:#ccc;
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
 }
 .stylish-input-group button{
     border:0;
@@ -153,42 +161,42 @@ body {
 }
 
 .btn-text {
-	border-radius: 0px;
-	padding: 28px;
+    border-radius: 0px;
+    padding: 28px;
 }
 
 .btn-text-wall {
-	border-radius: 0px;
-	padding: 26px;
+    border-radius: 0px;
+    padding: 29px;
 }
 
 .text-box {
-	padding-top: 10px;
-	border-radius: 0px;
+    padding-top: 10px;
+    border-radius: 0px;
 }
 
 .status-box {
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .status-text {
-	padding: 5px;
-	border-radius: 0px;
+    padding: 5px;
+    border-radius: 0px;
 }
 
 .status-text-wall {
-	
-	border-radius: 0px;
+
+    border-radius: 0px;
 }
 
 .input-group-addon {
-	border: 0px;
-	padding: 0px;
-	border-radius: 0px;
+    border: 0px;
+    padding: 0px;
+    border-radius: 0px;
 }
 
 .input-group {
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 textarea {
@@ -196,23 +204,23 @@ textarea {
 }
 
 .bottom_left {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .bottom_right {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 .bottom_left >.btn {
-	border: 0px;
-	padding: 0px;
+    border: 0px;
+    padding: 0px;
 }
 
 .friend-list {
     border-radius: 0px;
-	background: #ffffff;
-	margin: 5px;
-	width: 49%;
-	text-align: left;
+    background: #ffffff;
+    margin: 5px;
+    width: 49%;
+    text-align: left;
 }
 
 .otherUserButton{
@@ -230,97 +238,113 @@ textarea {
 }
 
 .well {
-	border: 1px solid #efefef;
-	width: 154px;
-	min-height: 200px;
-	padding: 0px;
-	margin: 10px;
-	background-color: #fff;
-	border-radius: 0px;
+    border: 1px solid #efefef;
+    width: 154px;
+    min-height: 200px;
+    padding: 0px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 0px;
 
 }
 .well > center > a > img {
-	margin-top: 5px;
+    margin-top: 5px;
+}
+
+.form-f {
+    width: 154px;
+    min-height: 200px;
+}
+
+
+.panel-body > .well > center > form > a > img {
+    margin-top: 5px;
 }
 
 .panel {
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
-	border: 0px;
-	border-radius: 0px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    border: 0px;
+    border-radius: 0px;
 }
 
 .panel .panel-heading {
-	background-color: #ffffff;
-	font-weight: 700;
-	font-size: 16px;
-	color: #262626;
-	border: 0px;
-	border-radius: 0px;
+    background-color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    color: #262626;
+    border: 0px;
+    border-radius: 0px;
 }
 
-.btn-xs {
-	border-radius: 0px;
-	margin-bottom: 5px;
+.btn-default {
+    border-radius: 0px;
 }
 .fheader {
-	border: 0 solid #efefef;
-	border-bottom-width: 1px;
-	padding-bottom: 10px;
+    border: 0 solid #efefef;
+    border-bottom-width: 1px;
+    padding-bottom: 10px;
 }
 
 .conv_form > li > a {
-	border: 0 solid #efefef;
-	border-bottom-width: 1px;
-	text-decoration: none;
-	color: #000;
-	display: block;
-	padding: 10px 15px;
+    border: 0 solid #efefef;
+    border-bottom-width: 1px;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px 15px;
 }
 
 .con_form > li > a:first-letter {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .conv_form > li > a:hover {
-	color: #337ab7;
-	background-color: #eee;
+    color: #337ab7;
+    background-color: #eee;
 }
 
 .message-text {
-	padding:  5px;
+    padding:  5px;
 }
 
 .form-group {
-	padding: 10px;
+    padding: 10px;
 }
 
 .modal-body {
-	padding: 0px;
+    padding: 0px;
 }
 
 .modal-content {
-	border-radius: 0px;
+    border-radius: 0px;
 }
 
 .btn {
-	border-radius: 0px;
+    border-radius: 0px;
 }
 
 .media-body > p:nth-child(4) {
-	padding-top: 5px;
-	padding-bottom: 15px;
-	border: 0 solid #efefef;
-	border-bottom-width: 1px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border: 0 solid #efefef;
+    border-bottom-width: 1px;
 }
 
 .media-body > span {
-	color: #999;
-	font-size: 10px;
+    color: #999;
+    font-size: 10px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.btn-f {
+    margin-bottom: 12px;
 }
 
 @media all and (max-width: 800px) {
-	.feed_profile > img {
-		display: none;
-	}
+    .feed_profile > img {
+        display: none;
+    }
 }
-
